@@ -61,87 +61,86 @@ module.exports = {
         body: ['Lato', 'sans-serif'],
         amita: ['Amita', 'cursive'],
       },
-    },
-    borderRadius: {
-      xl: "calc(var(--radius) + 4px)",
-      lg: "var(--radius)",
-      md: "calc(var(--radius) - 2px)",
-      sm: "calc(var(--radius) - 4px)",
-      xs: "calc(var(--radius) - 6px)",
-    },
-    boxShadow: {
-      xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-      'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
-      'soft-lg': '0 8px 40px rgba(0, 0, 0, 0.12)',
-      'glow': '0 0 30px rgba(214, 191, 166, 0.4)',
-    },
-    keyframes: {
-      "accordion-down": {
-        from: { height: "0" },
-        to: { height: "var(--radix-accordion-content-height)" },
+      borderRadius: {
+        xl: "calc(var(--radius) + 4px)",
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+        xs: "calc(var(--radius) - 6px)",
       },
-      "accordion-up": {
-        from: { height: "var(--radix-accordion-content-height)" },
-        to: { height: "0" },
+      boxShadow: {
+        xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
+        'soft-lg': '0 8px 40px rgba(0, 0, 0, 0.12)',
+        'glow': '0 0 30px rgba(214, 191, 166, 0.4)',
       },
-      "caret-blink": {
-        "0%,70%,100%": { opacity: "1" },
-        "20%,50%": { opacity: "0" },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "caret-blink": {
+          "0%,70%,100%": { opacity: "1" },
+          "20%,50%": { opacity: "0" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "breathe": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
+        },
+        "ken-burns": {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(1.1)" },
+        },
+        "sound-wave": {
+          "0%": { transform: "scale(0)", opacity: "0.6" },
+          "100%": { transform: "scale(2.5)", opacity: "0" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(214, 191, 166, 0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(214, 191, 166, 0.6)" },
+        },
+        "fade-in-up": {
+          "from": { opacity: "0", transform: "translateY(30px)" },
+          "to": { opacity: "1", transform: "translateY(0)" },
+        },
+        "slide-in-left": {
+          "from": { opacity: "0", transform: "translateX(-50px)" },
+          "to": { opacity: "1", transform: "translateX(0)" },
+        },
+        "slide-in-right": {
+          "from": { opacity: "0", transform: "translateX(50px)" },
+          "to": { opacity: "1", transform: "translateX(0)" },
+        },
       },
-      "float": {
-        "0%, 100%": { transform: "translateY(0)" },
-        "50%": { transform: "translateY(-10px)" },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "caret-blink": "caret-blink 1.25s ease-out infinite",
+        "float": "float 6s ease-in-out infinite",
+        "breathe": "breathe 8s ease-in-out infinite",
+        "ken-burns": "ken-burns 20s ease-in-out infinite alternate",
+        "sound-wave": "sound-wave 3s ease-out infinite",
+        "pulse-glow": "pulse-glow 4s ease-in-out infinite",
+        "fade-in-up": "fade-in-up 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards",
+        "slide-in-left": "slide-in-left 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards",
+        "slide-in-right": "slide-in-right 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards",
       },
-      "breathe": {
-        "0%, 100%": { opacity: "0.4" },
-        "50%": { opacity: "0.8" },
+      transitionTimingFunction: {
+        'ambient': 'cubic-bezier(0.23, 1, 0.32, 1)',
+        'breathe': 'cubic-bezier(0.45, 0, 0.55, 1)',
+        'flow': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'dramatic': 'cubic-bezier(0.87, 0, 0.13, 1)',
+        'elastic': 'cubic-bezier(0.68, -0.15, 0.265, 1.15)',
       },
-      "ken-burns": {
-        "0%": { transform: "scale(1)" },
-        "100%": { transform: "scale(1.1)" },
-      },
-      "sound-wave": {
-        "0%": { transform: "scale(0)", opacity: "0.6" },
-        "100%": { transform: "scale(2.5)", opacity: "0" },
-      },
-      "pulse-glow": {
-        "0%, 100%": { boxShadow: "0 0 20px rgba(214, 191, 166, 0.3)" },
-        "50%": { boxShadow: "0 0 40px rgba(214, 191, 166, 0.6)" },
-      },
-      "fade-in-up": {
-        "from": { opacity: "0", transform: "translateY(30px)" },
-        "to": { opacity: "1", transform: "translateY(0)" },
-      },
-      "slide-in-left": {
-        "from": { opacity: "0", transform: "translateX(-50px)" },
-        "to": { opacity: "1", transform: "translateX(0)" },
-      },
-      "slide-in-right": {
-        "from": { opacity: "0", transform: "translateX(50px)" },
-        "to": { opacity: "1", transform: "translateX(0)" },
-      },
-    },
-    animation: {
-      "accordion-down": "accordion-down 0.2s ease-out",
-      "accordion-up": "accordion-up 0.2s ease-out",
-      "caret-blink": "caret-blink 1.25s ease-out infinite",
-      "float": "float 6s ease-in-out infinite",
-      "breathe": "breathe 8s ease-in-out infinite",
-      "ken-burns": "ken-burns 20s ease-in-out infinite alternate",
-      "sound-wave": "sound-wave 3s ease-out infinite",
-      "pulse-glow": "pulse-glow 4s ease-in-out infinite",
-      "fade-in-up": "fade-in-up 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards",
-      "slide-in-left": "slide-in-left 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards",
-      "slide-in-right": "slide-in-right 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards",
-    },
-    transitionTimingFunction: {
-      'ambient': 'cubic-bezier(0.23, 1, 0.32, 1)',
-      'breathe': 'cubic-bezier(0.45, 0, 0.55, 1)',
-      'flow': 'cubic-bezier(0.16, 1, 0.3, 1)',
-      'dramatic': 'cubic-bezier(0.87, 0, 0.13, 1)',
-      'elastic': 'cubic-bezier(0.68, -0.15, 0.265, 1.15)',
     },
   },
-},
   plugins: [require("tailwindcss-animate")],
 }
