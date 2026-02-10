@@ -34,11 +34,10 @@ export default function AnimatedNav() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-ambient ${
-        scrolled
-          ? 'glass shadow-soft py-3'
-          : 'bg-transparent py-5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-ambient ${scrolled
+        ? 'bg-midnight/95 backdrop-blur-lg shadow-lg border-b border-gold/20 py-3'
+        : 'bg-midnight/60 backdrop-blur-sm py-5'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -49,11 +48,14 @@ export default function AnimatedNav() {
               e.preventDefault();
               scrollToSection('#home');
             }}
-            className={`font-display text-xl sm:text-2xl font-semibold tracking-wide transition-colors duration-500 ${
-              scrolled ? 'text-charcoal' : 'text-white'
-            }`}
+            className="flex items-center transition-opacity duration-500 hover:opacity-80"
           >
-            HARMONIC HEALING
+            <img
+              src="/images/tito-dreaming-with-me-logo-icon.svg"
+              alt="Tito Dreaming With Me"
+              className={`transition-all duration-500 ${scrolled ? 'h-36 sm:h-44' : 'h-44 sm:h-52'
+                }`}
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -66,12 +68,10 @@ export default function AnimatedNav() {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className={`relative font-body text-sm tracking-wide transition-colors duration-300 group ${
-                  scrolled ? 'text-charcoal' : 'text-white'
-                }`}
+                className="relative font-body text-sm tracking-wide transition-colors duration-300 group text-cream hover:text-gold"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-warm-beige transition-all duration-300 group-hover:w-full group-hover:left-0" />
+                <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full group-hover:left-0" />
               </a>
             ))}
           </div>
@@ -80,11 +80,7 @@ export default function AnimatedNav() {
           <div className="hidden lg:block">
             <Button
               onClick={() => scrollToSection('#contact')}
-              className={`transition-all duration-300 ${
-                scrolled
-                  ? 'bg-warm-beige text-charcoal hover:bg-warm-beige-dark'
-                  : 'bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm'
-              }`}
+              className="bg-gold text-midnight hover:bg-cream transition-all duration-300 font-semibold"
             >
               Book a Session
             </Button>
@@ -96,13 +92,13 @@ export default function AnimatedNav() {
               <Button
                 variant="ghost"
                 size="icon"
-                className={scrolled ? 'text-charcoal' : 'text-white'}
+                className="min-w-[44px] min-h-[44px] text-cream hover:text-gold"
               >
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-white">
-              <div className="flex flex-col gap-6 mt-8">
+            <SheetContent side="right" className="w-[85vw] max-w-[300px] bg-midnight border-l border-gold/20">
+              <div className="flex flex-col gap-5 mt-8">
                 {navLinks.map((link, index) => (
                   <a
                     key={link.name}
@@ -111,7 +107,7 @@ export default function AnimatedNav() {
                       e.preventDefault();
                       scrollToSection(link.href);
                     }}
-                    className="font-display text-2xl text-charcoal hover:text-warm-beige transition-colors duration-300"
+                    className="font-display text-xl text-cream hover:text-gold transition-colors duration-300 py-1"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     {link.name}
@@ -119,7 +115,7 @@ export default function AnimatedNav() {
                 ))}
                 <Button
                   onClick={() => scrollToSection('#contact')}
-                  className="mt-4 bg-warm-beige text-charcoal hover:bg-warm-beige-dark"
+                  className="mt-4 bg-gold text-midnight hover:bg-cream font-semibold"
                 >
                   Book a Session
                 </Button>

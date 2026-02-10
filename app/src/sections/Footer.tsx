@@ -140,7 +140,7 @@ export default function Footer() {
   };
 
   return (
-    <footer ref={footerRef} className="relative bg-charcoal text-white overflow-hidden">
+    <footer ref={footerRef} className="relative bg-midnight-dark text-white overflow-hidden">
       {/* Wave Divider */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
         <svg
@@ -151,7 +151,7 @@ export default function Footer() {
           <path
             ref={waveRef}
             d="M0,60 C300,120 900,0 1200,60 L1200,0 L0,0 Z"
-            fill="#faf8f5"
+            className="fill-midnight"
             stroke="none"
           />
         </svg>
@@ -162,8 +162,8 @@ export default function Footer() {
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             {/* Column 1 - About */}
             <div ref={(el) => { columnsRef.current[0] = el; }}>
-              <h3 className="font-display text-2xl mb-4">HARMONIC HEALING</h3>
-              <p className="font-body text-white/70 text-sm leading-relaxed mb-6">
+              <h3 className="font-amita text-3xl mb-4 text-gold">Tito Dreaming With Me</h3>
+              <p className="font-body text-cream/70 text-sm leading-relaxed mb-6">
                 Healing through sound and shared experience. Combining ambient saxophone
                 music with peer support to guide your wellness journey.
               </p>
@@ -176,7 +176,7 @@ export default function Footer() {
                       key={index}
                       href={social.href}
                       aria-label={social.label}
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-warm-beige transition-colors duration-300"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-midnight transition-colors duration-300"
                     >
                       <Icon className="w-5 h-5" />
                     </a>
@@ -187,7 +187,7 @@ export default function Footer() {
 
             {/* Column 2 - Quick Links */}
             <div ref={(el) => { columnsRef.current[1] = el; }}>
-              <h4 className="font-display text-lg mb-4">Quick Links</h4>
+              <h4 className="font-display text-lg mb-4 text-white">Quick Links</h4>
               <ul className="space-y-2">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
@@ -197,7 +197,7 @@ export default function Footer() {
                         e.preventDefault();
                         scrollToSection(link.href);
                       }}
-                      className="font-body text-white/70 text-sm hover:text-warm-beige transition-colors duration-300"
+                      className="font-body text-cream/70 text-sm hover:text-gold transition-colors duration-300"
                     >
                       {link.name}
                     </a>
@@ -208,15 +208,15 @@ export default function Footer() {
 
             {/* Column 3 - Contact */}
             <div ref={(el) => { columnsRef.current[2] = el; }}>
-              <h4 className="font-display text-lg mb-4">Get in Touch</h4>
+              <h4 className="font-display text-lg mb-4 text-white">Get in Touch</h4>
               <div className="space-y-3">
-                <p className="font-body text-white/70 text-sm">
+                <p className="font-body text-cream/70 text-sm">
                   hello@harmonichealing.com
                 </p>
-                <p className="font-body text-white/70 text-sm">
+                <p className="font-body text-cream/70 text-sm">
                   +1 (555) 123-4567
                 </p>
-                <p className="font-body text-white/70 text-sm">
+                <p className="font-body text-cream/70 text-sm">
                   Available worldwide via video call
                 </p>
               </div>
@@ -228,19 +228,19 @@ export default function Footer() {
             ref={bottomRef}
             className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
           >
-            <p className="font-body text-white/50 text-sm">
-              © 2026 Harmonic Healing. All rights reserved.
+            <p className="font-body text-white/30 text-sm">
+              © 2026 Tito Dreaming With Me. All rights reserved.
             </p>
             <div className="flex gap-6">
               <a
                 href="#"
-                className="font-body text-white/50 text-sm hover:text-warm-beige transition-colors duration-300"
+                className="font-body text-white/30 text-sm hover:text-gold transition-colors duration-300"
               >
                 Privacy Policy
               </a>
               <a
                 href="#"
-                className="font-body text-white/50 text-sm hover:text-warm-beige transition-colors duration-300"
+                className="font-body text-white/30 text-sm hover:text-gold transition-colors duration-300"
               >
                 Terms of Service
               </a>

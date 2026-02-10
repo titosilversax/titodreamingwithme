@@ -154,7 +154,7 @@ export default function AboutSection() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative py-20 sm:py-32 bg-gradient-to-b from-white to-[#faf8f5] overflow-hidden"
+      className="relative py-20 sm:py-32 bg-gradient-to-b from-midnight to-midnight-dark overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -163,7 +163,7 @@ export default function AboutSection() {
             {/* Decorative Frame */}
             <div
               ref={imageFrameRef}
-              className="absolute inset-0 bg-warm-beige/30 rounded-lg transform rotate-3 scale-105"
+              className="absolute inset-0 bg-gold/30 rounded-lg transform rotate-3 scale-105"
               style={{ willChange: 'transform' }}
             />
 
@@ -180,30 +180,30 @@ export default function AboutSection() {
               />
             </div>
 
-            {/* Floating decorative elements */}
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-warm-beige/20 rounded-full animate-float" />
-            <div className="absolute -top-4 -left-4 w-16 h-16 bg-warm-beige/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
+            {/* Floating decorative elements - smaller on mobile */}
+            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-16 h-16 sm:w-24 sm:h-24 bg-gold/20 rounded-full animate-float" />
+            <div className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 w-12 h-12 sm:w-16 sm:h-16 bg-gold/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
           </div>
 
           {/* Right Column - Content */}
           <div className="lg:pl-8">
             <h2
               ref={headingRef}
-              className="font-display text-4xl sm:text-5xl text-charcoal font-light mb-4"
+              className="font-display text-4xl sm:text-5xl text-cream font-light mb-4"
             >
               My Story
             </h2>
 
             <p
               ref={(el) => { paragraphsRef.current[0] = el; }}
-              className="font-body text-warm-beige-dark text-lg mb-6"
+              className="font-body text-gold text-lg mb-6"
             >
               From lived experience to shared healing
             </p>
 
             <p
               ref={(el) => { paragraphsRef.current[1] = el; }}
-              className="font-body text-text-gray leading-relaxed mb-4"
+              className="font-body text-cream/80 leading-relaxed mb-4"
             >
               My journey began in the depths of personal struggle, where I discovered that healing
               often comes from unexpected places. For me, that place was in the resonant tones of
@@ -212,7 +212,7 @@ export default function AboutSection() {
 
             <p
               ref={(el) => { paragraphsRef.current[2] = el; }}
-              className="font-body text-text-gray leading-relaxed mb-4"
+              className="font-body text-cream/80 leading-relaxed mb-4"
             >
               As a certified peer support specialist, I bring not just training, but the deep
               understanding that comes from walking the path of recovery myself. My ambient
@@ -222,7 +222,7 @@ export default function AboutSection() {
 
             <p
               ref={(el) => { paragraphsRef.current[3] = el; }}
-              className="font-body text-text-gray leading-relaxed mb-8"
+              className="font-body text-cream/80 leading-relaxed mb-8"
             >
               Today, I combine these dual passions to create spaces where sound and story
               intertwine, offering pathways to emotional wellness that honor both the scientific
@@ -232,25 +232,25 @@ export default function AboutSection() {
             {/* Pull Quote */}
             <blockquote
               ref={quoteRef}
-              className="relative pl-6 border-l-4 border-warm-beige mb-8"
+              className="relative pl-6 border-l-4 border-gold mb-8"
             >
-              <p className="font-display text-2xl sm:text-3xl text-charcoal italic">
+              <p className="font-display text-2xl sm:text-3xl text-white italic">
                 "Music doesn't just heal—it transforms pain into beauty, isolation into connection."
               </p>
             </blockquote>
 
             {/* Credentials */}
             <div ref={credentialsRef} className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 text-sm text-text-gray">
-                <Award className="w-4 h-4 text-warm-beige" />
+              <div className="flex items-center gap-2 text-sm text-cream/70">
+                <Award className="w-4 h-4 text-gold" />
                 <span>Certified Peer Support Specialist</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-text-gray">
-                <Music className="w-4 h-4 text-warm-beige" />
+              <div className="flex items-center gap-2 text-sm text-cream/70">
+                <Music className="w-4 h-4 text-gold" />
                 <span>Jazz Saxophonist</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-text-gray">
-                <Heart className="w-4 h-4 text-warm-beige" />
+              <div className="flex items-center gap-2 text-sm text-cream/70">
+                <Heart className="w-4 h-4 text-gold" />
                 <span>Wellness Coach</span>
               </div>
             </div>

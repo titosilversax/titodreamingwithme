@@ -151,16 +151,16 @@ export default function CommunitySection() {
     <section
       id="community"
       ref={sectionRef}
-      className="relative py-20 sm:py-32 bg-gradient-to-b from-white to-[#faf8f5] overflow-hidden"
+      className="relative py-20 sm:py-32 bg-gradient-to-b from-[#1a1a2e] to-[#151525] overflow-hidden"
     >
-      {/* Decorative mandala pattern (subtle) */}
+      {/* Decorative mandala pattern (subtle) - hidden on mobile to prevent overflow */}
       <svg
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-5"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-auto pointer-events-none opacity-5 hidden sm:block"
         viewBox="0 0 400 400"
       >
-        <circle cx="200" cy="200" r="150" fill="none" stroke="#d6bfa6" strokeWidth="1" />
-        <circle cx="200" cy="200" r="120" fill="none" stroke="#d6bfa6" strokeWidth="1" />
-        <circle cx="200" cy="200" r="90" fill="none" stroke="#d6bfa6" strokeWidth="1" />
+        <circle cx="200" cy="200" r="150" fill="none" stroke="#c9a961" strokeWidth="1" />
+        <circle cx="200" cy="200" r="120" fill="none" stroke="#c9a961" strokeWidth="1" />
+        <circle cx="200" cy="200" r="90" fill="none" stroke="#c9a961" strokeWidth="1" />
         {[...Array(8)].map((_, i) => (
           <line
             key={i}
@@ -168,7 +168,7 @@ export default function CommunitySection() {
             y1="200"
             x2={200 + 150 * Math.cos((i * Math.PI) / 4)}
             y2={200 + 150 * Math.sin((i * Math.PI) / 4)}
-            stroke="#d6bfa6"
+            stroke="#c9a961"
             strokeWidth="1"
           />
         ))}
@@ -177,10 +177,10 @@ export default function CommunitySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div ref={headingRef} className="text-center mb-16">
-          <h2 className="font-display text-4xl sm:text-5xl text-charcoal font-light mb-4">
+          <h2 className="font-display text-4xl sm:text-5xl text-[#e8d4a0] font-light mb-4">
             Join Our Community
           </h2>
-          <p className="font-body text-text-gray text-lg max-w-2xl mx-auto">
+          <p className="font-body text-[#e8d4a0]/80 text-lg max-w-2xl mx-auto">
             Connect, heal, and grow together in a supportive space designed for your wellness journey
           </p>
         </div>
@@ -206,7 +206,7 @@ export default function CommunitySection() {
                 {[0, 1, 2].map((i) => (
                   <div
                     key={i}
-                    className="community-ring absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 rounded-full border-2 border-warm-beige"
+                    className="community-ring absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 rounded-full border-2 border-[#c9a961]"
                   />
                 ))}
               </div>
@@ -225,18 +225,18 @@ export default function CommunitySection() {
                 >
                   {/* Icon */}
                   <div className="mb-4 flex justify-center">
-                    <div className="w-16 h-16 rounded-full bg-warm-beige/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 animate-pulse-glow">
-                      <Icon className="w-8 h-8 text-warm-beige-dark" />
+                    <div className="w-16 h-16 rounded-full bg-[#c9a961]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 animate-pulse-glow">
+                      <Icon className="w-8 h-8 text-[#c9a961]" />
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-display text-xl text-charcoal mb-2">
+                  <h3 className="font-display text-xl text-white mb-2">
                     {pillar.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="font-body text-text-gray text-sm">
+                  <p className="font-body text-[#e8d4a0]/70 text-sm">
                     {pillar.description}
                   </p>
                 </div>
@@ -248,7 +248,7 @@ export default function CommunitySection() {
           <div ref={ctaRef} className="text-center">
             <Button
               size="lg"
-              className="bg-warm-beige text-charcoal hover:bg-warm-beige-dark transition-all duration-300 group"
+              className="bg-[#c9a961] text-[#1a1a2e] hover:bg-[#e8d4a0] transition-all duration-300 group"
             >
               Become a Member
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />

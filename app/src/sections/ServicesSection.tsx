@@ -6,6 +6,12 @@ import { Button } from '@/components/ui/button';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Detect touch device
+const isTouchDevice = () => {
+  if (typeof window === 'undefined') return false;
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+};
+
 const services = [
   {
     icon: Heart,
@@ -115,6 +121,9 @@ export default function ServicesSection() {
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
+    // Skip 3D effect on touch devices
+    if (isTouchDevice()) return;
+
     const card = cardsRef.current[index];
     if (!card) return;
 
@@ -152,7 +161,7 @@ export default function ServicesSection() {
     <section
       id="services"
       ref={sectionRef}
-      className="relative py-20 sm:py-32 bg-gradient-to-b from-[#faf8f5] to-white overflow-hidden"
+      className="relative py-20 sm:py-32 bg-gradient-to-b from-[#151525] to-[#1a1a2e] overflow-hidden"
     >
       {/* Decorative connecting lines */}
       <svg
@@ -163,7 +172,7 @@ export default function ServicesSection() {
         <path
           d="M200,300 Q400,200 600,300 T1000,300"
           fill="none"
-          stroke="#d6bfa6"
+          stroke="#c9a961"
           strokeWidth="1"
           strokeDasharray="8,8"
         />
@@ -172,10 +181,10 @@ export default function ServicesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div ref={headingRef} className="text-center mb-16">
-          <h2 className="font-display text-4xl sm:text-5xl text-charcoal font-light mb-4">
+          <h2 className="font-display text-4xl sm:text-5xl text-[#e8d4a0] font-light mb-4">
             Services
           </h2>
-          <p className="font-body text-text-gray text-lg max-w-2xl mx-auto">
+          <p className="font-body text-[#e8d4a0]/80 text-lg max-w-2xl mx-auto">
             Comprehensive healing experiences combining peer support, sound therapy,
             and digital wellness resources
           </p>
@@ -188,11 +197,16 @@ export default function ServicesSection() {
         >
           {services.map((service, index) => {
             const Icon = service.icon;
+            // Update color logic for dark mode
+            const borderColor = index === 0 ? 'border-t-[#c9a961]' : index === 1 ? 'border-t-amber-500' : 'border-t-teal-500';
+            const iconBg = index === 0 ? 'rgba(201, 169, 97, 0.2)' : index === 1 ? 'rgba(245, 158, 11, 0.2)' : 'rgba(20, 184, 166, 0.2)';
+            const iconColor = index === 0 ? '#c9a961' : index === 1 ? '#f59e0b' : '#14b8a6';
+
             return (
               <div
                 key={index}
                 ref={(el) => { cardsRef.current[index] = el; }}
-                className={`relative bg-white rounded-lg shadow-soft hover:shadow-soft-lg transition-shadow duration-500 overflow-hidden ${service.color} border-t-4`}
+                className={`relative bg-[#1a1a2e]/50 backdrop-blur-md border border-white/10 rounded-lg shadow-soft hover:shadow-soft-lg transition-shadow duration-500 overflow-hidden ${borderColor} border-t-4`}
                 style={{
                   transformStyle: 'preserve-3d',
                   willChange: 'transform',
@@ -203,7 +217,7 @@ export default function ServicesSection() {
               >
                 {/* Featured badge */}
                 {service.featured && (
-                  <div className="absolute top-4 right-4 bg-amber-400 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  <div className="absolute top-4 right-4 bg-amber-500 text-[#1a1a2e] text-xs font-semibold px-3 py-1 rounded-full">
                     Most Popular
                   </div>
                 )}
@@ -212,39 +226,28 @@ export default function ServicesSection() {
                   {/* Icon */}
                   <div className="mb-6">
                     <div
-                      className={`w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-300 ${
-                        hoveredCard === index ? 'scale-110' : ''
-                      }`}
+                      className={`w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-300 ${hoveredCard === index ? 'scale-110' : ''
+                        }`}
                       style={{
-                        backgroundColor:
-                          index === 0
-                            ? 'rgba(214, 191, 166, 0.2)'
-                            : index === 1
-                            ? 'rgba(251, 191, 36, 0.2)'
-                            : 'rgba(45, 212, 191, 0.2)',
+                        backgroundColor: iconBg,
                       }}
                     >
                       <Icon
                         className="w-7 h-7"
                         style={{
-                          color:
-                            index === 0
-                              ? '#c6b1a0'
-                              : index === 1
-                              ? '#d97706'
-                              : '#0d9488',
+                          color: iconColor,
                         }}
                       />
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-display text-2xl text-charcoal mb-3">
+                  <h3 className="font-display text-2xl text-white mb-3">
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="font-body text-text-gray text-sm leading-relaxed mb-6">
+                  <p className="font-body text-[#e8d4a0]/70 text-sm leading-relaxed mb-6">
                     {service.description}
                   </p>
 
@@ -253,9 +256,9 @@ export default function ServicesSection() {
                     {service.features.map((feature, fIndex) => (
                       <li
                         key={fIndex}
-                        className="flex items-center gap-2 text-sm text-text-gray"
+                        className="flex items-center gap-2 text-sm text-[#e8d4a0]/80"
                       >
-                        <Check className="w-4 h-4 text-warm-beige flex-shrink-0" />
+                        <Check className="w-4 h-4 text-[#c9a961] flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -264,11 +267,10 @@ export default function ServicesSection() {
                   {/* CTA Button */}
                   <Button
                     variant={service.buttonVariant}
-                    className={`w-full transition-all duration-300 ${
-                      service.buttonVariant === 'default'
-                        ? 'bg-warm-beige text-charcoal hover:bg-warm-beige-dark'
-                        : 'border-warm-beige text-charcoal hover:bg-warm-beige/10'
-                    }`}
+                    className={`w-full transition-all duration-300 ${service.buttonVariant === 'default'
+                        ? 'bg-[#c9a961] text-[#1a1a2e] hover:bg-[#e8d4a0]'
+                        : 'border-[#c9a961] text-[#c9a961] hover:bg-[#c9a961]/10'
+                      }`}
                   >
                     {service.cta}
                   </Button>

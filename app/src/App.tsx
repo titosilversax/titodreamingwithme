@@ -33,7 +33,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#1a1a2e]">
       <AnimatedNav />
       <main>
         <HeroSection />

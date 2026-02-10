@@ -1,0 +1,77 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="400" cy="400" r="380" fill="#1a1a2e" opacity="0.95"/>
+  
+  <!-- Outer star constellation ring -->
+  <g opacity="0.6">
+    <!-- Stars -->
+    <circle cx="400" cy="80" r="3" fill="#e8d4a0"/>
+    <circle cx="580" cy="150" r="2" fill="#e8d4a0"/>
+    <circle cx="680" cy="300" r="3" fill="#e8d4a0"/>
+    <circle cx="700" cy="500" r="2" fill="#e8d4a0"/>
+    <circle cx="580" cy="650" r="3" fill="#e8d4a0"/>
+    <circle cx="400" cy="720" r="2" fill="#e8d4a0"/>
+    <circle cx="220" cy="650" r="3" fill="#e8d4a0"/>
+    <circle cx="100" cy="500" r="2" fill="#e8d4a0"/>
+    <circle cx="120" cy="300" r="3" fill="#e8d4a0"/>
+    <circle cx="220" cy="150" r="2" fill="#e8d4a0"/>
+    
+    <!-- Connecting lines (constellation) -->
+    <path d="M 400 80 L 580 150 L 680 300 L 700 500 L 580 650 L 400 720 L 220 650 L 100 500 L 120 300 L 220 150 Z" 
+          stroke="#e8d4a0" stroke-width="1" fill="none" opacity="0.3"/>
+  </g>
+  
+  <!-- Inner glow -->
+  <circle cx="400" cy="400" r="280" fill="none" stroke="#c9a961" stroke-width="2" opacity="0.3"/>
+  <circle cx="400" cy="400" r="260" fill="none" stroke="#c9a961" stroke-width="1" opacity="0.2"/>
+  
+  <!-- Stylized saxophone body -->
+  <g transform="translate(350, 250)">
+    <!-- Bell of sax -->
+    <ellipse cx="50" cy="200" rx="45" ry="38" fill="none" stroke="#c9a961" stroke-width="4"/>
+    <ellipse cx="50" cy="200" rx="35" ry="28" fill="none" stroke="#e8d4a0" stroke-width="2"/>
+    
+    <!-- Body curve -->
+    <path d="M 50 162 Q 30 120, 25 80 Q 23 50, 35 25 Q 45 5, 65 5" 
+          fill="none" stroke="#c9a961" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 50 162 Q 30 120, 25 80 Q 23 50, 35 25 Q 45 5, 65 5" 
+          fill="none" stroke="#e8d4a0" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Mouthpiece -->
+    <path d="M 65 5 L 75 -10" stroke="#c9a961" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="75" cy="-10" r="4" fill="#e8d4a0"/>
+    
+    <!-- Key pads (modal connection) -->
+    <circle cx="40" cy="60" r="6" fill="#1a1a2e" stroke="#c9a961" stroke-width="2"/>
+    <circle cx="30" cy="90" r="6" fill="#1a1a2e" stroke="#c9a961" stroke-width="2"/>
+    <circle cx="35" cy="120" r="6" fill="#1a1a2e" stroke="#c9a961" stroke-width="2"/>
+    <circle cx="45" cy="145" r="6" fill="#1a1a2e" stroke="#c9a961" stroke-width="2"/>
+    
+    <!-- Musical notes flowing out as stars -->
+    <g opacity="0.8">
+      <path d="M 50 200 Q 80 180, 110 170" stroke="#e8d4a0" stroke-width="2" fill="none" opacity="0.5"/>
+      <circle cx="110" cy="170" r="4" fill="#e8d4a0"/>
+      <circle cx="130" cy="160" r="3" fill="#e8d4a0"/>
+      <circle cx="150" cy="155" r="2" fill="#e8d4a0"/>
+      
+      <path d="M 50 200 Q 90 210, 120 220" stroke="#c9a961" stroke-width="2" fill="none" opacity="0.5"/>
+      <circle cx="120" cy="220" r="3" fill="#c9a961"/>
+      <circle cx="140" cy="225" r="2" fill="#c9a961"/>
+    </g>
+  </g>
+  
+  <!-- Modal harmony wave -->
+  <path d="M 200 550 Q 300 530, 400 550 Q 500 570, 600 550" 
+        stroke="#c9a961" stroke-width="2" fill="none" opacity="0.4"/>
+  <path d="M 200 570 Q 300 590, 400 570 Q 500 550, 600 570" 
+        stroke="#e8d4a0" stroke-width="1" fill="none" opacity="0.3"/>
+  
+  <!-- Text in cursive/script style -->
+  <text x="400" y="630" font-family="cursive, 'Dancing Script', 'Brush Script MT', fantasy" font-size="58" font-weight="400" fill="#e8d4a0" text-anchor="middle" font-style="italic">
+    tito dreaming
+  </text>
+  
+  <text x="400" y="685" font-family="cursive, 'Dancing Script', 'Brush Script MT', fantasy" font-size="58" font-weight="400" fill="#e8d4a0" text-anchor="middle" font-style="italic">
+    with me
+  </text>
+</svg>

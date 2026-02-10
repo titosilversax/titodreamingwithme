@@ -108,7 +108,7 @@ export default function ScienceSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 sm:py-32 bg-white overflow-hidden"
+      className="relative py-20 sm:py-32 bg-[#1a1a2e] overflow-hidden"
     >
       {/* Decorative SVG Wave Line */}
       <svg
@@ -120,7 +120,7 @@ export default function ScienceSection() {
           ref={lineRef}
           d="M0,400 Q300,200 600,400 T1200,400"
           fill="none"
-          stroke="#d6bfa6"
+          stroke="#c9a961"
           strokeWidth="2"
         />
       </svg>
@@ -131,11 +131,11 @@ export default function ScienceSection() {
           <div className="lg:col-span-4">
             <h2
               ref={headingRef}
-              className="font-display text-4xl sm:text-5xl text-charcoal font-light sticky top-32"
+              className="font-display text-4xl sm:text-5xl text-[#e8d4a0] font-light lg:sticky lg:top-32"
             >
               Did You Know?
             </h2>
-            <div className="mt-6 w-20 h-1 bg-warm-beige" />
+            <div className="mt-6 w-20 h-1 bg-[#c9a961]" />
           </div>
 
           {/* Right Column - Facts */}
@@ -147,18 +147,18 @@ export default function ScienceSection() {
                   <div
                     key={index}
                     ref={(el) => { cardsRef.current[index] = el; }}
-                    className="group bg-white rounded-lg p-6 shadow-soft hover:shadow-soft-lg transition-all duration-500 ease-ambient hover:-translate-y-2"
+                    className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 shadow-soft hover:shadow-soft-lg transition-all duration-500 ease-ambient hover:-translate-y-2 hover:bg-white/10"
                     style={{ perspective: '1000px' }}
                   >
                     {/* Icon */}
                     <div className="mb-4">
-                      <div className="w-12 h-12 rounded-full bg-warm-beige/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="w-6 h-6 text-warm-beige-dark" />
+                      <div className="w-12 h-12 rounded-full bg-[#c9a961]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="w-6 h-6 text-[#c9a961]" />
                       </div>
                     </div>
 
                     {/* Text */}
-                    <p className="font-body text-text-gray text-sm leading-relaxed">
+                    <p className="font-body text-[#e8d4a0]/80 text-sm leading-relaxed">
                       {fact.text}
                     </p>
                   </div>

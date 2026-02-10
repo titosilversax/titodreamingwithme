@@ -125,7 +125,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative py-20 sm:py-32 bg-gradient-to-b from-white to-[#faf8f5] overflow-hidden"
+      className="relative py-20 sm:py-32 bg-gradient-to-b from-[#151525] to-[#1a1a2e] overflow-hidden"
     >
       {/* Decorative wave background */}
       <svg
@@ -135,7 +135,7 @@ export default function ContactSection() {
       >
         <path
           d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z"
-          fill="rgba(214, 191, 166, 0.1)"
+          fill="rgba(201, 169, 97, 0.05)"
         />
       </svg>
 
@@ -143,32 +143,32 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Column - Info & Image */}
           <div ref={leftContentRef}>
-            <h2 className="font-display text-4xl sm:text-5xl text-charcoal font-light mb-4">
+            <h2 className="font-display text-4xl sm:text-5xl text-[#e8d4a0] font-light mb-4">
               Begin Your Healing Journey
             </h2>
-            <p className="font-body text-text-gray text-lg mb-8">
+            <p className="font-body text-[#e8d4a0]/80 text-lg mb-8">
               Reach out to schedule a session or learn more about how we can work together
             </p>
 
             {/* Contact Info */}
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-warm-beige/20 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-warm-beige-dark" />
+                <div className="w-10 h-10 rounded-full bg-[#c9a961]/20 flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-[#c9a961]" />
                 </div>
-                <span className="font-body text-text-gray">hello@harmonichealing.com</span>
+                <span className="font-body text-[#e8d4a0]/80">hello@harmonichealing.com</span>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-warm-beige/20 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-warm-beige-dark" />
+                <div className="w-10 h-10 rounded-full bg-[#c9a961]/20 flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-[#c9a961]" />
                 </div>
-                <span className="font-body text-text-gray">+1 (555) 123-4567</span>
+                <span className="font-body text-[#e8d4a0]/80">+1 (555) 123-4567</span>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-warm-beige/20 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-warm-beige-dark" />
+                <div className="w-10 h-10 rounded-full bg-[#c9a961]/20 flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-[#c9a961]" />
                 </div>
-                <span className="font-body text-text-gray">Available worldwide via video call</span>
+                <span className="font-body text-[#e8d4a0]/80">Available worldwide via video call</span>
               </div>
             </div>
 
@@ -182,7 +182,7 @@ export default function ContactSection() {
                 alt="Saxophone"
                 className="w-full aspect-[4/3] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e]/60 to-transparent" />
             </div>
           </div>
 
@@ -191,16 +191,16 @@ export default function ContactSection() {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="bg-white rounded-lg shadow-soft-lg p-8"
+              className="bg-[#1a1a2e]/50 backdrop-blur-md border border-white/10 rounded-lg shadow-soft-lg p-8"
             >
-              <h3 className="font-display text-2xl text-charcoal mb-6">
+              <h3 className="font-display text-2xl text-white mb-6">
                 Send a Message
               </h3>
 
               <div className="space-y-6">
                 {/* Name Field */}
                 <div ref={(el) => { formFieldsRef.current[0] = el; }}>
-                  <label className="block font-body text-sm text-text-gray mb-2">
+                  <label className="block font-body text-sm text-[#e8d4a0]/80 mb-2">
                     Your Name
                   </label>
                   <Input
@@ -210,13 +210,13 @@ export default function ContactSection() {
                     onChange={handleChange}
                     placeholder="John Doe"
                     required
-                    className="w-full border-gray-200 focus:border-warm-beige focus:ring-warm-beige/20 transition-all duration-300"
+                    className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-[#c9a961] focus:ring-[#c9a961]/20 transition-all duration-300 py-3 text-base"
                   />
                 </div>
 
                 {/* Email Field */}
                 <div ref={(el) => { formFieldsRef.current[1] = el; }}>
-                  <label className="block font-body text-sm text-text-gray mb-2">
+                  <label className="block font-body text-sm text-[#e8d4a0]/80 mb-2">
                     Email Address
                   </label>
                   <Input
@@ -226,13 +226,13 @@ export default function ContactSection() {
                     onChange={handleChange}
                     placeholder="john@example.com"
                     required
-                    className="w-full border-gray-200 focus:border-warm-beige focus:ring-warm-beige/20 transition-all duration-300"
+                    className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-[#c9a961] focus:ring-[#c9a961]/20 transition-all duration-300 py-3 text-base"
                   />
                 </div>
 
                 {/* Subject Field */}
                 <div ref={(el) => { formFieldsRef.current[2] = el; }}>
-                  <label className="block font-body text-sm text-text-gray mb-2">
+                  <label className="block font-body text-sm text-[#e8d4a0]/80 mb-2">
                     Subject
                   </label>
                   <Input
@@ -242,13 +242,13 @@ export default function ContactSection() {
                     onChange={handleChange}
                     placeholder="How can I help you?"
                     required
-                    className="w-full border-gray-200 focus:border-warm-beige focus:ring-warm-beige/20 transition-all duration-300"
+                    className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-[#c9a961] focus:ring-[#c9a961]/20 transition-all duration-300 py-3 text-base"
                   />
                 </div>
 
                 {/* Message Field */}
                 <div ref={(el) => { formFieldsRef.current[3] = el; }}>
-                  <label className="block font-body text-sm text-text-gray mb-2">
+                  <label className="block font-body text-sm text-[#e8d4a0]/80 mb-2">
                     Your Message
                   </label>
                   <Textarea
@@ -258,7 +258,7 @@ export default function ContactSection() {
                     placeholder="Tell me about your journey..."
                     rows={5}
                     required
-                    className="w-full border-gray-200 focus:border-warm-beige focus:ring-warm-beige/20 transition-all duration-300 resize-none"
+                    className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-[#c9a961] focus:ring-[#c9a961]/20 transition-all duration-300 resize-none py-3 text-base"
                   />
                 </div>
 
@@ -266,7 +266,7 @@ export default function ContactSection() {
                 <div ref={(el) => { formFieldsRef.current[4] = el; }}>
                   <Button
                     type="submit"
-                    className="w-full bg-warm-beige text-charcoal hover:bg-warm-beige-dark transition-all duration-300 group"
+                    className="w-full bg-[#c9a961] text-[#1a1a2e] hover:bg-[#e8d4a0] transition-all duration-300 group"
                   >
                     Send Message
                     <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />

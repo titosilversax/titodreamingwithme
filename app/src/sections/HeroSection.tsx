@@ -139,10 +139,10 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
       </div>
 
-      {/* Sound Wave Rings */}
+      {/* Sound Wave Rings - hidden on mobile to prevent overflow */}
       <div
         ref={ringsRef}
-        className="absolute right-[15%] top-1/2 -translate-y-1/2 pointer-events-none"
+        className="absolute right-[15%] top-1/2 -translate-y-1/2 pointer-events-none hidden md:block"
       >
         {[0, 1, 2].map((i) => (
           <div
