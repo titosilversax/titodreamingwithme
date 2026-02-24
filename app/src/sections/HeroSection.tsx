@@ -1,199 +1,218 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ChevronDown } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function HeroSection() {
-  const sectionRef = useRef<HTMLElement>(null);
+interface HeroSectionProps {
+  className?: string;
+}
+
+const HeroSection = ({ className = '' }: HeroSectionProps) => {
+  const sectionRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
-  const quoteCardRef = useRef<HTMLDivElement>(null);
-  const quoteTextRef = useRef<HTMLHeadingElement>(null);
-  const attributionRef = useRef<HTMLParagraphElement>(null);
-  const linkRef = useRef<HTMLAnchorElement>(null);
-  const ringsRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLButtonElement>(null);
+  const starsRef = useRef<HTMLDivElement>(null);
 
+  // Entrance animation on load
   useEffect(() => {
-    const section = sectionRef.current;
-    const bg = bgRef.current;
-    const quoteCard = quoteCardRef.current;
-    const quoteText = quoteTextRef.current;
-    const attribution = attributionRef.current;
-    const link = linkRef.current;
-    const rings = ringsRef.current;
-
-    if (!section || !bg || !quoteCard || !quoteText || !attribution || !link || !rings) return;
-
     const ctx = gsap.context(() => {
-      // Initial states
-      gsap.set(bg, { scale: 1.1, opacity: 0 });
-      gsap.set(quoteCard, { rotateY: -15, opacity: 0, x: -50 });
-      gsap.set(quoteText, { clipPath: 'inset(0 100% 0 0)' });
-      gsap.set(attribution, { opacity: 0, y: 20 });
-      gsap.set(link, { opacity: 0, y: 20 });
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      // Entrance timeline
-      const tl = gsap.timeline({ delay: 0.3 });
+      // Background fade and scale
+      tl.fromTo(
+        bgRef.current,
+        { opacity: 0, scale: 1.08 },
+        { opacity: 1, scale: 1, duration: 1.2 }
+      );
 
-      tl.to(bg, {
-        scale: 1,
-        opacity: 1,
-        duration: 2,
-        ease: 'power2.out',
-      })
-        .to(
-          quoteCard,
-          {
-            rotateY: 0,
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            ease: 'power3.out',
-          },
-          '-=1.4'
-        )
-        .to(
-          quoteText,
-          {
-            clipPath: 'inset(0 0% 0 0)',
-            duration: 1.5,
-            ease: 'power2.out',
-          },
-          '-=0.6'
-        )
-        .to(
-          attribution,
+      // Stars fade in
+      tl.fromTo(
+        starsRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8 },
+        '-=0.8'
+      );
+
+      // Title character animation
+      if (titleRef.current) {
+        const chars = titleRef.current.innerText.split('');
+        titleRef.current.innerHTML = chars
+          .map((char) => `<span class="inline-block">${char === ' ' ? '&nbsp;' : char}</span>`)
+          .join('');
+
+        tl.fromTo(
+          titleRef.current.querySelectorAll('span'),
+          { opacity: 0, y: 24, rotateX: 35 },
           {
             opacity: 1,
             y: 0,
+            rotateX: 0,
             duration: 0.6,
-            ease: 'power2.out',
-          },
-          '-=0.8'
-        )
-        .to(
-          link,
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: 'power2.out',
+            stagger: 0.02,
           },
           '-=0.4'
         );
+      }
 
-      // Sound wave rings animation
-      const ringElements = rings.querySelectorAll('.sound-ring');
-      ringElements.forEach((ring, index) => {
-        gsap.to(ring, {
-          scale: 2.5,
-          opacity: 0,
-          duration: 3,
-          delay: index * 1,
-          repeat: -1,
-          ease: 'power1.out',
-        });
-      });
+      // Subtitle fade in
+      tl.fromTo(
+        subtitleRef.current,
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        '-=0.3'
+      );
 
-      // Scroll parallax effect
-      ScrollTrigger.create({
-        trigger: section,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          gsap.set(bg, {
-            y: progress * 30 + '%',
-            scale: 1 + progress * 0.15,
-          });
-          gsap.set(quoteCard, {
-            y: progress * -50,
-            rotateX: progress * 5,
-          });
-        },
-      });
-    }, section);
+      // CTA fade in
+      tl.fromTo(
+        ctaRef.current,
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        '-=0.4'
+      );
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
+  // Scroll-driven exit animation
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const scrollTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: '+=130%',
+          pin: true,
+          scrub: 0.6,
+          onLeaveBack: () => {
+            // Reset all elements to visible when scrolling back
+            gsap.set([titleRef.current, subtitleRef.current, ctaRef.current], {
+              opacity: 1,
+              y: 0,
+            });
+            gsap.set(bgRef.current, { scale: 1, opacity: 1 });
+          },
+        },
+      });
+
+      // ENTRANCE (0% - 30%): Hold at visible state (already animated on load)
+      // SETTLE (30% - 70%): Static
+
+      // EXIT (70% - 100%)
+      scrollTl.fromTo(
+        titleRef.current,
+        { y: 0, opacity: 1 },
+        { y: '-18vh', opacity: 0, ease: 'power2.in' },
+        0.70
+      );
+
+      scrollTl.fromTo(
+        subtitleRef.current,
+        { y: 0, opacity: 1 },
+        { y: '-10vh', opacity: 0, ease: 'power2.in' },
+        0.72
+      );
+
+      scrollTl.fromTo(
+        ctaRef.current,
+        { y: 0, opacity: 1 },
+        { y: '-10vh', opacity: 0, ease: 'power2.in' },
+        0.74
+      );
+
+      scrollTl.fromTo(
+        bgRef.current,
+        { scale: 1, opacity: 1 },
+        { scale: 1.06, opacity: 0.8, ease: 'power2.in' },
+        0.70
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const scrollToNext = () => {
+    const nextSection = document.getElementById('saxophone');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
-      id="home"
       ref={sectionRef}
-      className="relative h-screen w-full overflow-hidden"
+      id="hero"
+      className={`section-pinned ${className}`}
     >
-      {/* Background Image with Ken Burns */}
+      {/* Background Image */}
       <div
         ref={bgRef}
         className="absolute inset-0 w-full h-full"
-        style={{ willChange: 'transform' }}
-      >
-        <img
-          src="/images/hero-bg.jpg"
-          alt="Healing atmosphere"
-          className="w-full h-full object-cover"
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
-      </div>
+        style={{
+          backgroundImage: 'url(/images/hero-starfield.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
 
-      {/* Sound Wave Rings - hidden on mobile to prevent overflow */}
-      <div
-        ref={ringsRef}
-        className="absolute right-[15%] top-1/2 -translate-y-1/2 pointer-events-none hidden md:block"
-      >
-        {[0, 1, 2].map((i) => (
+      {/* Vignette Overlay */}
+      <div className="absolute inset-0 vignette-overlay" />
+
+      {/* Animated Stars */}
+      <div ref={starsRef} className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(30)].map((_, i) => (
           <div
             key={i}
-            className="sound-ring absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full border-2 border-warm-beige/30"
-            style={{ transform: 'translate(-50%, -50%) scale(0)' }}
+            className="absolute w-1 h-1 bg-[#F5F1E8] rounded-full animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              opacity: 0.3 + Math.random() * 0.7,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 3}s`,
+            }}
           />
         ))}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-end px-4 sm:px-8 lg:px-16">
-        <div
-          ref={quoteCardRef}
-          className="max-w-xl mr-0 lg:mr-[10%]"
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
+        {/* Main Title */}
+        <h1
+          ref={titleRef}
+          className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-[#F5F1E8] text-center tracking-[0.12em] mb-6"
           style={{ perspective: '1000px' }}
         >
-          {/* Quote Card with Glassmorphism */}
-          <div className="glass-dark rounded-lg p-8 sm:p-12 border border-white/10">
-            {/* Quote Mark */}
-            <div className="text-warm-beige text-6xl sm:text-8xl font-display leading-none mb-4 opacity-60">
-              "
-            </div>
+          TITO DREAMING WITH ME
+        </h1>
 
-            {/* Quote Text */}
-            <h1
-              ref={quoteTextRef}
-              className="font-display text-3xl sm:text-4xl lg:text-5xl text-white font-light leading-tight mb-6"
-            >
-              I Believe Sound & Story Heal.
-            </h1>
+        {/* Subtitle */}
+        <p
+          ref={subtitleRef}
+          className="font-body text-base sm:text-lg md:text-xl text-[#A9B3C7] text-center tracking-wide mb-10"
+        >
+          Healing Through Music · Creating Through Feeling
+        </p>
 
-            {/* Attribution */}
-            <p
-              ref={attributionRef}
-              className="font-body text-white/80 text-lg mb-4"
-            >
-              - Your Name
-            </p>
-
-            {/* Event Link */}
-            <a
-              ref={linkRef}
-              href="#contact"
-              className="inline-block font-body text-warm-beige text-sm hover:text-white transition-colors duration-300 underline underline-offset-4"
-            >
-              Upcoming Event: Healing Sound Journey - March 2026
-            </a>
-          </div>
-        </div>
+        {/* CTA Button */}
+        <button
+          ref={ctaRef}
+          onClick={scrollToNext}
+          className="btn-primary flex items-center gap-2 group"
+        >
+          Enter the Night
+          <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+        </button>
       </div>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0B0F1F] to-transparent" />
     </section>
   );
-}
+};
+
+export default HeroSection;

@@ -1,175 +1,42 @@
-/* App-specific styles */
-
-/* Smooth scroll for the entire page */
-html {
-  scroll-behavior: smooth;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-/* Ensure full-width sections */
-section {
-  width: 100%;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-/* Custom selection color */
-::selection {
-  background-color: rgba(214, 191, 166, 0.3);
-  color: inherit;
-}
-
-/* Focus styles for accessibility */
-*:focus-visible {
-  outline: 2px solid #d6bfa6;
-  outline-offset: 2px;
-}
-
-/* Button hover lift effect */
-button:hover {
-  transform: translateY(-1px);
-}
-
-button:active {
-  transform: translateY(0);
-}
-
-/* Card hover transitions */
-.card-hover {
-  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
-    box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-}
-
-/* Glass morphism effect */
-.glass {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.glass-dark {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  background: rgba(0, 0, 0, 0.3);
-}
-
-/* Text gradient */
-.text-gradient {
-  background: linear-gradient(135deg, #d6bfa6 0%, #c6b1a0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Animated underline */
-.animated-underline {
-  position: relative;
-}
-
-.animated-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: #d6bfa6;
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  transform: translateX(-50%);
-}
-
-.animated-underline:hover::after {
-  width: 100%;
-}
-
-/* Sound wave animation */
-@keyframes sound-wave-pulse {
-  0% {
-    transform: scale(0);
-    opacity: 0.6;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  100% {
-    transform: scale(2.5);
-    opacity: 0;
+  to {
+    transform: rotate(360deg);
   }
 }
 
-.sound-wave-animation {
-  animation: sound-wave-pulse 3s ease-out infinite;
-}
-
-/* Floating animation */
-@keyframes float-gentle {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
   }
 }
 
-.float-gentle {
-  animation: float-gentle 6s ease-in-out infinite;
+.card {
+  padding: 2em;
 }
 
-/* Breathing glow animation */
-@keyframes breathe-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(214, 191, 166, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(214, 191, 166, 0.6);
-  }
-}
-
-.breathe-glow {
-  animation: breathe-glow 4s ease-in-out infinite;
-}
-
-/* Ken Burns effect for hero */
-@keyframes ken-burns {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
-}
-
-.ken-burns {
-  animation: ken-burns 20s ease-in-out infinite alternate;
-}
-
-/* Stagger animation delays */
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Mobile optimizations */
-@media (max-width: 768px) {
-  .glass {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-  
-  .glass-dark {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
+.read-the-docs {
+  color: #888;
 }

@@ -1,49 +1,83 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-import AnimatedNav from './components/AnimatedNav';
+import Navigation from './components/Navigation';
 import HeroSection from './sections/HeroSection';
-import ScienceSection from './sections/ScienceSection';
-import AboutSection from './sections/AboutSection';
-import ServicesSection from './sections/ServicesSection';
-import CommunitySection from './sections/CommunitySection';
-import TestimonialsSection from './sections/TestimonialsSection';
-import ContactSection from './sections/ContactSection';
-import Footer from './sections/Footer';
+import SaxophoneSection from './sections/SaxophoneSection';
+import LyricsSection from './sections/LyricsSection';
+import ConstellationSection from './sections/ConstellationSection';
+import ListenersSection from './sections/ListenersSection';
+import CreatorsSection from './sections/CreatorsSection';
+import ClosingSection from './sections/ClosingSection';
+import Footer from './components/Footer';
 
-import './App.css';
-
-// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  useEffect(() => {
-    // Configure ScrollTrigger defaults
-    ScrollTrigger.defaults({
-      toggleActions: 'play none none none',
-    });
+  const mainRef = useRef<HTMLDivElement>(null);
 
-    // Refresh ScrollTrigger on load
-    ScrollTrigger.refresh();
+  useEffect(() => {
+    // Wait for all sections to mount before setting up global snap
+    const timer = setTimeout(() => {
+      const pinned = ScrollTrigger.getAll()
+        .filter(st => st.vars.pin)
+        .sort((a, b) => a.start - b.start);
+      
+      const maxScroll = ScrollTrigger.maxScroll(window);
+      
+      if (!maxScroll || pinned.length === 0) return;
+
+      const pinnedRanges = pinned.map(st => ({
+        start: st.start / maxScroll,
+        end: (st.end ?? st.start) / maxScroll,
+        center: (st.start + ((st.end ?? st.start) - st.start) * 0.5) / maxScroll,
+      }));
+
+      ScrollTrigger.create({
+        snap: {
+          snapTo: (value: number) => {
+            const inPinned = pinnedRanges.some(r => value >= r.start - 0.02 && value <= r.end + 0.02);
+            if (!inPinned) return value;
+
+            const target = pinnedRanges.reduce((closest, r) =>
+              Math.abs(r.center - value) < Math.abs(closest - value) ? r.center : closest,
+              pinnedRanges[0]?.center ?? 0
+            );
+            return target;
+          },
+          duration: { min: 0.15, max: 0.35 },
+          delay: 0,
+          ease: "power2.out"
+        }
+      });
+    }, 500);
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      clearTimeout(timer);
+      ScrollTrigger.getAll().forEach(st => st.kill());
     };
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#1a1a2e]">
-      <AnimatedNav />
-      <main>
-        <HeroSection />
-        <ScienceSection />
-        <AboutSection />
-        <ServicesSection />
-        <CommunitySection />
-        <TestimonialsSection />
-        <ContactSection />
+    <div ref={mainRef} className="relative bg-[#0B0F1F]">
+      {/* Noise overlay */}
+      <div className="noise-overlay" />
+      
+      {/* Navigation */}
+      <Navigation />
+      
+      {/* Main content */}
+      <main className="relative">
+        <HeroSection className="z-10" />
+        <SaxophoneSection className="z-20" />
+        <LyricsSection className="z-30" />
+        <ConstellationSection className="z-40" />
+        <ListenersSection className="z-50" />
+        <CreatorsSection className="z-60" />
+        <ClosingSection className="z-70" />
       </main>
+      
+      {/* Footer */}
       <Footer />
     </div>
   );
