@@ -6,26 +6,21 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 80);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { label: 'Cuentos', href: '#cuentos' },
-    { label: 'The Star Map', href: '#starmap' },
     { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Free Guides', href: '#guides' },
+    { label: 'Coaching', href: '#coaching' },
+    { label: 'Listen', href: '#listen' },
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
   };
 
@@ -34,24 +29,31 @@ const Navigation = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
           isScrolled
-            ? 'bg-[#0B0F1F]/90 backdrop-blur-md py-4'
-            : 'bg-transparent py-6'
+            ? 'py-3'
+            : 'py-5'
         }`}
+        style={{
+          background: isScrolled
+            ? 'rgba(10, 14, 26, 0.92)'
+            : 'transparent',
+          backdropFilter: isScrolled ? 'blur(16px)' : 'none',
+          borderBottom: isScrolled ? '1px solid rgba(0,217,255,0.07)' : 'none',
+        }}
       >
-        <div className="w-full px-6 lg:px-12 flex items-center justify-between">
-          {/* Logo */}
+        <div className="w-full px-6 lg:px-12 flex items-center justify-between max-w-7xl mx-auto">
           <a
             href="#"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="font-script text-xl lg:text-2xl text-[#F5F1E8] hover:text-[#D4A574] transition-colors"
+            className="font-script text-xl lg:text-2xl transition-colors"
+            style={{ color: '#00d9ff' }}
           >
             tito dreaming with me
           </a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -61,31 +63,47 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="text-sm font-body text-[#A9B3C7] hover:text-[#D4A574] transition-colors tracking-wide"
+                className="font-ui text-sm tracking-wide transition-colors"
+                style={{ color: '#7a92b0', letterSpacing: '0.06em' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#00d9ff')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#7a92b0')}
               >
                 {link.label}
               </a>
             ))}
+            <a
+              href="https://titodreamingwith.me/initial-optin"
+              className="btn-outline-cyan"
+              style={{ fontSize: '0.7rem', padding: '0.55rem 1.25rem' }}
+            >
+              Free Star Map
+            </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-[#F5F1E8] hover:text-[#D4A574] transition-colors"
+            className="md:hidden transition-colors"
+            style={{ color: '#dce8f0' }}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </nav>
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-[99] bg-[#0B0F1F]/98 backdrop-blur-lg transition-all duration-500 md:hidden ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}
+        className={`fixed inset-0 z-[99] md:hidden transition-all duration-400`}
+        style={{
+          background: 'rgba(10, 14, 26, 0.97)',
+          backdropFilter: 'blur(20px)',
+          opacity: isMobileMenuOpen ? 1 : 0,
+          visibility: isMobileMenuOpen ? 'visible' : 'hidden',
+          transition: 'opacity 0.35s ease, visibility 0.35s ease',
+        }}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
+        <div className="flex flex-col items-center justify-center h-full gap-10">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -94,11 +112,20 @@ const Navigation = () => {
                 e.preventDefault();
                 scrollToSection(link.href);
               }}
-              className="font-heading text-2xl text-[#F5F1E8] hover:text-[#D4A574] transition-colors tracking-wider"
+              className="font-heading text-2xl tracking-widest transition-colors"
+              style={{ color: '#dce8f0' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#00d9ff')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = '#dce8f0')}
             >
               {link.label}
             </a>
           ))}
+          <a
+            href="https://titodreamingwith.me/initial-optin"
+            className="btn-cyan mt-4"
+          >
+            Free Star Map
+          </a>
         </div>
       </div>
     </>
