@@ -11,7 +11,7 @@ const packages = [
     description:
       'One focused hour of personalized healing guidance. We begin where you are — no agenda, no performance.',
     cta: 'Book Now',
-    href: 'https://paperbell.me/titodreamingwithme',
+    href: 'https://app.paperbell.com/checkout/packages/121537',
     featured: false,
   },
   {
@@ -20,7 +20,7 @@ const packages = [
     description:
       'Three sessions of sustained healing guidance. Enough space to go deep, find patterns, and begin real movement.',
     cta: 'Book Now',
-    href: 'https://paperbell.me/titodreamingwithme',
+    href: 'https://app.paperbell.com/checkout/packages/118390',
     featured: true,
   },
   {
@@ -29,7 +29,7 @@ const packages = [
     description:
       'Six sessions of ongoing healing work over 2–3 months. For those ready for sustained transformation.',
     cta: 'Book Now',
-    href: 'https://paperbell.me/titodreamingwithme',
+    href: 'https://app.paperbell.com/checkout/packages/204726',
     featured: false,
   },
 ];
