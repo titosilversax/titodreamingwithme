@@ -94,7 +94,7 @@ const CoachingSection = () => {
           </p>
           <h2
             className="fade-up font-heading mb-4"
-            style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)', color: '#dce8f0' }}
+            style={{ fontSize: 'clamp(28px, 4.5vw, 36px)', color: '#dce8f0' }}
           >
             Ready to Go Deeper?
           </h2>

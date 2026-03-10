@@ -156,7 +156,7 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
         <h1
           className="hero-line font-body italic text-balance leading-snug mb-7"
           style={{
-            fontSize: 'clamp(1.75rem, 4.5vw, 3.5rem)',
+            fontSize: 'clamp(36px, 5vw, 56px)',
             color: '#dce8f0',
             fontWeight: 400,
             lineHeight: 1.35,
@@ -181,7 +181,7 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
         <p
           className="hero-line font-body text-balance mb-10"
           style={{
-            fontSize: 'clamp(1rem, 2.2vw, 1.25rem)',
+            fontSize: 'clamp(16px, 2.2vw, 1.25rem)',
             color: '#7a92b0',
             lineHeight: 1.7,
           }}
@@ -190,10 +190,10 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
         </p>
 
         {/* CTA */}
-        <div className="hero-line">
+        <div className="hero-line w-full px-4 md:px-0">
           <a
             href="https://titodreamingwith.me/initial-optin"
-            className="btn-cyan"
+            className="btn-cyan w-full md:w-auto"
           >
             Get Your Free Emotional Star Map
           </a>

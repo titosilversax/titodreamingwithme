@@ -69,7 +69,7 @@ const AboutSection = () => {
                   border: '1px solid rgba(0,217,255,0.08)',
                 }}
               />
-              {/* Photo placeholder */}
+              {/* Photo */}
               <div
                 className="relative rounded-full overflow-hidden flex items-center justify-center"
                 style={{
@@ -80,47 +80,23 @@ const AboutSection = () => {
                   boxShadow: '0 0 60px rgba(0,217,255,0.07)',
                 }}
               >
-                <div className="text-center px-4">
-                  <div
-                    className="rounded-full mx-auto mb-3 flex items-center justify-center"
-                    style={{
-                      width: 64,
-                      height: 64,
-                      background: 'rgba(0,217,255,0.07)',
-                    }}
-                  >
-                    <svg
-                      width="32"
-                      height="32"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="#00d9ff"
-                      strokeWidth="1"
-                      opacity="0.45"
-                    >
-                      <circle cx="12" cy="8" r="4" />
-                      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                    </svg>
-                  </div>
-                  <p
-                    className="font-ui"
-                    style={{ fontSize: '0.65rem', color: 'rgba(122,146,176,0.5)', letterSpacing: '0.1em', textTransform: 'uppercase' }}
-                  >
-                    headshot
-                  </p>
-                </div>
+                <img
+                  src="/images/IMG_7145.jpeg"
+                  alt="Tito"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
 
           {/* Text column */}
-          <div>
+          <div className="text-center md:text-left">
             <p className="fade-up font-script mb-2" style={{ color: '#00d9ff', fontSize: '1.2rem' }}>
               Who is
             </p>
             <h2
               className="fade-up font-heading mb-8"
-              style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#dce8f0' }}
+              style={{ fontSize: 'clamp(28px, 5vw, 4rem)', color: '#dce8f0' }}
             >
               Tito?
             </h2>

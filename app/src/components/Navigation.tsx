@@ -83,11 +83,11 @@ const Navigation = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden transition-colors"
-            style={{ color: '#dce8f0' }}
+            className="md:hidden transition-colors flex items-center justify-center"
+            style={{ color: '#dce8f0', minWidth: '44px', minHeight: '44px' }}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </nav>

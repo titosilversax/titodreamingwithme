@@ -78,7 +78,7 @@ const ListenSection = () => {
           </p>
           <h2
             className="fade-up font-heading mb-4"
-            style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)', color: '#dce8f0' }}
+            style={{ fontSize: 'clamp(28px, 4.5vw, 36px)', color: '#dce8f0' }}
           >
             The Music
           </h2>
@@ -159,9 +159,9 @@ const ListenSection = () => {
           </div>
 
           {/* Card body */}
-          <div className="p-8 md:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="p-8 md:p-10 flex flex-col md:flex-row items-center md:items-center justify-between gap-6 text-center md:text-left">
             <div>
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
                 <span style={{ color: '#ff0000' }}>
                   <YouTubeIcon />
                 </span>
@@ -184,7 +184,7 @@ const ListenSection = () => {
               href="https://youtube.com/@titosilversax"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline-cyan"
+              className="btn-outline-cyan w-full md:w-auto"
               style={{ flexShrink: 0 }}
             >
               Visit Channel
