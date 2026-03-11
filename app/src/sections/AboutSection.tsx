@@ -47,7 +47,7 @@ const AboutSection = () => {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-14 md:gap-24 items-center">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-24 items-center">
 
           {/* Photo column */}
           <div className="fade-up flex justify-center">
@@ -90,7 +90,7 @@ const AboutSection = () => {
           </div>
 
           {/* Text column */}
-          <div className="text-center md:text-left">
+          <div className="w-full text-center md:text-left">
             <p className="fade-up font-script mb-2" style={{ color: '#00d9ff', fontSize: '1.2rem' }}>
               Who is
             </p>

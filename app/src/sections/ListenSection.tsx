@@ -159,7 +159,7 @@ const ListenSection = () => {
           </div>
 
           {/* Card body */}
-          <div className="p-8 md:p-10 flex flex-col md:flex-row items-center md:items-center justify-between gap-6 text-center md:text-left">
+          <div className="p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6 text-center md:text-left">
             <div>
               <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
                 <span style={{ color: '#ff0000' }}>
@@ -184,8 +184,7 @@ const ListenSection = () => {
               href="https://youtube.com/@titosilversax"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline-cyan w-full md:w-auto"
-              style={{ flexShrink: 0 }}
+              className="btn-outline-cyan md:w-auto md:flex-shrink-0"
             >
               Visit Channel
             </a>

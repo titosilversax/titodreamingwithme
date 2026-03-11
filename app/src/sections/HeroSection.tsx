@@ -141,8 +141,7 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
       {/* Hero content */}
       <div
         ref={contentRef}
-        className="relative z-10 text-center px-6 max-w-3xl mx-auto"
-        style={{ paddingTop: '5rem' }}
+        className="relative z-10 text-center px-4 md:px-6 max-w-3xl mx-auto pt-24 md:pt-28"
       >
         {/* Brand script line */}
         <p
@@ -190,7 +189,7 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
         </p>
 
         {/* CTA */}
-        <div className="hero-line w-full px-4 md:px-0">
+        <div className="hero-line w-full">
           <a
             href="https://titodreamingwith.me/initial-optin"
             className="btn-cyan w-full md:w-auto"
