@@ -13,7 +13,7 @@ const Navigation = () => {
 
   const navLinks = [
     { label: 'About', href: '#about' },
-    { label: 'Free Guides', href: '#guides' },
+    { label: 'Free Guide', href: '#guides' },
     { label: 'Coaching', href: '#coaching' },
     { label: 'Community', href: '#community' },
     { label: 'Listen', href: '#listen' },

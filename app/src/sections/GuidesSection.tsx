@@ -4,29 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const guides = [
-  {
-    number: '01',
-    label: 'For Healing & Wellness',
-    title: 'The Emotional Star Map',
-    subtitle: 'A Guide to Mapping Feelings for Healing & Wellness',
-    description:
-      'A feeling-first navigation system for anyone carrying big emotions. Seven emotional territories. Four bridges between them. A daily journal practice.',
-    cta: 'Download Free',
-    href: 'https://titodreamingwith.me/initial-optin',
-  },
-  {
-    number: '02',
-    label: 'For Songwriters',
-    title: 'The Emotional Star Map',
-    subtitle: "A Songwriter's Guide to Mapping Feelings in Music",
-    description:
-      'A creative framework for translating raw emotion into music. Seven modal palettes. Four emotional bridges. A song feeling journal.',
-    cta: 'Download Free',
-    href: 'https://titodreamingwith.me/initial-optin',
-  },
-];
-
 const GuidesSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -78,88 +55,119 @@ const GuidesSection = () => {
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <div className="relative z-10 max-w-3xl mx-auto">
 
         {/* Section heading */}
         <div className="text-center mb-16">
           <p className="fade-up font-script mb-3" style={{ color: '#00d9ff', fontSize: '1.2rem' }}>
-            begin here
+            start here
           </p>
           <h2
             className="fade-up font-heading mb-4"
             style={{ fontSize: 'clamp(28px, 4.5vw, 36px)', color: '#dce8f0' }}
           >
-            Two Free Guides
+            A Free Guide for Songwriters & Creatives
           </h2>
-          <p className="fade-up font-body" style={{ color: '#7a92b0', fontSize: '1.1rem' }}>
-            No music background required for either.
+          <p className="fade-up font-body" style={{ color: '#7a92b0', fontSize: '1.1rem', maxWidth: '520px', margin: '0 auto' }}>
+            New to music? Just starting to write? This is exactly where to begin —
+            no experience required, only curiosity.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {guides.map((guide) => (
-            <div
-              key={guide.number}
-              className="fade-up glass-card rounded-2xl p-8 md:p-10 flex flex-col gap-5 group"
-              style={{ transition: 'border-color 0.4s ease, box-shadow 0.4s ease' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(0,217,255,0.28)';
-                e.currentTarget.style.boxShadow = '0 0 60px rgba(0,217,255,0.06)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(0,217,255,0.10)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-            >
-              {/* Number + label */}
-              <div className="flex items-baseline gap-4">
-                <span
-                  className="font-heading"
-                  style={{ fontSize: '3.5rem', color: 'rgba(0,217,255,0.15)', lineHeight: 1 }}
-                >
-                  {guide.number}
-                </span>
-                <span
-                  className="font-ui uppercase tracking-widest"
-                  style={{ fontSize: '0.65rem', color: 'rgba(0,217,255,0.55)' }}
-                >
-                  {guide.label}
-                </span>
-              </div>
-
-              {/* Title */}
-              <div>
-                <h3
-                  className="font-heading mb-1"
-                  style={{ fontSize: '1.05rem', color: '#dce8f0', lineHeight: 1.4 }}
-                >
-                  {guide.title}
-                </h3>
-                <p
-                  className="font-body italic"
-                  style={{ fontSize: '0.95rem', color: 'rgba(122,146,176,0.8)' }}
-                >
-                  {guide.subtitle}
-                </p>
-              </div>
-
-              {/* Description */}
-              <p
-                className="font-body flex-1"
-                style={{ fontSize: '1.05rem', color: '#7a92b0', lineHeight: 1.75 }}
+        {/* Single card */}
+        <div className="fade-up">
+          <div
+            className="glass-card rounded-2xl p-10 md:p-14 flex flex-col gap-6 group"
+            style={{ transition: 'border-color 0.4s ease, box-shadow 0.4s ease' }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(0,217,255,0.28)';
+              e.currentTarget.style.boxShadow = '0 0 60px rgba(0,217,255,0.06)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(0,217,255,0.10)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
+          >
+            {/* Label */}
+            <div className="flex items-center gap-3">
+              <span
+                className="font-ui uppercase tracking-widest"
+                style={{ fontSize: '0.65rem', color: 'rgba(0,217,255,0.55)' }}
               >
-                {guide.description}
-              </p>
-
-              {/* CTA */}
-              <div>
-                <a href={guide.href} className="btn-outline-cyan">
-                  {guide.cta}
-                </a>
-              </div>
+                For Songwriters &amp; Creatives
+              </span>
+              <span
+                className="font-ui uppercase tracking-widest px-2 py-0.5 rounded"
+                style={{
+                  fontSize: '0.6rem',
+                  color: 'rgba(0,217,255,0.7)',
+                  border: '1px solid rgba(0,217,255,0.2)',
+                  background: 'rgba(0,217,255,0.05)',
+                }}
+              >
+                Beginner Friendly
+              </span>
             </div>
-          ))}
+
+            {/* Title */}
+            <div>
+              <h3
+                className="font-heading mb-2"
+                style={{ fontSize: 'clamp(22px, 3vw, 28px)', color: '#dce8f0', lineHeight: 1.3 }}
+              >
+                The Emotional Star Map
+              </h3>
+              <p
+                className="font-body italic"
+                style={{ fontSize: '1rem', color: 'rgba(122,146,176,0.8)' }}
+              >
+                A Songwriter's Guide to Mapping Feelings in Music
+              </p>
+            </div>
+
+            {/* Description */}
+            <p
+              className="font-body"
+              style={{ fontSize: '1.05rem', color: '#7a92b0', lineHeight: 1.85 }}
+            >
+              A creative framework for translating raw emotion into music. Whether you've
+              never written a song or are just finding your voice — this guide meets you
+              exactly where you are. Seven modal palettes. Four emotional bridges.
+              A song-feeling journal to help you turn what you feel into what you create.
+            </p>
+
+            {/* What you'll get */}
+            <ul
+              className="font-body flex flex-col gap-2"
+              style={{ fontSize: '0.95rem', color: '#7a92b0' }}
+            >
+              {[
+                'Understand how emotions map to music — even without theory',
+                'Discover your personal sound palette',
+                'Use journaling prompts to unlock your first (or next) song',
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span style={{ color: 'rgba(0,217,255,0.5)', marginTop: '2px' }}>✦</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            {/* Notion badge */}
+            <p
+              className="font-ui"
+              style={{ fontSize: '0.75rem', color: 'rgba(122,146,176,0.55)', letterSpacing: '0.04em' }}
+            >
+              ✦ Delivered as an interactive Notion guide — free to duplicate and use at your own pace.
+            </p>
+
+            {/* CTA */}
+            <div className="pt-2">
+              <a href="https://titodreamingwith.me/initial-optin" className="btn-outline-cyan">
+                Download Free
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
