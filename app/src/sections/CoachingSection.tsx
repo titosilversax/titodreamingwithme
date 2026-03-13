@@ -4,36 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const packages = [
-  {
-    name: 'The Navigation\nSession',
-    price: '$150',
-    description:
-      'One focused hour of personalized healing guidance. We begin where you are — no agenda, no performance.',
-    cta: 'Book Now',
-    href: 'https://app.paperbell.com/checkout/packages/121537',
-    featured: false,
-  },
-  {
-    name: 'The Journey',
-    price: '$397',
-    description:
-      'Three sessions of sustained healing guidance. Enough space to go deep, find patterns, and begin real movement.',
-    cta: 'Book Now',
-    href: 'https://app.paperbell.com/checkout/packages/118390',
-    featured: true,
-  },
-  {
-    name: 'The Deep\nNavigation',
-    price: '$747',
-    description:
-      'Six sessions of ongoing healing work over 2–3 months. For those ready for sustained transformation.',
-    cta: 'Book Now',
-    href: 'https://app.paperbell.com/checkout/packages/204726',
-    featured: false,
-  },
-];
-
 const CoachingSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -58,6 +28,28 @@ const CoachingSection = () => {
       );
     }, sectionRef);
     return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const w = 'https://tally.so/widgets/embed.js';
+    const load = () => {
+      if ((window as any).Tally) {
+        (window as any).Tally.loadEmbeds();
+      } else {
+        document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach((el) => {
+          (el as HTMLIFrameElement).src = (el as HTMLElement).dataset.tallySrc!;
+        });
+      }
+    };
+    if ((window as any).Tally) {
+      load();
+    } else if (!document.querySelector(`script[src="${w}"]`)) {
+      const s = document.createElement('script');
+      s.src = w;
+      s.onload = load;
+      s.onerror = load;
+      document.body.appendChild(s);
+    }
   }, []);
 
   return (
@@ -106,98 +98,18 @@ const CoachingSection = () => {
           </p>
         </div>
 
-        {/* Pricing cards */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {packages.map((pkg) => (
-            <div
-              key={pkg.name}
-              className="fade-up relative flex flex-col"
-              style={{ borderRadius: '1.25rem' }}
-            >
-              {pkg.featured && (
-                <div
-                  className="absolute -top-px left-0 right-0 h-px"
-                  style={{
-                    background: 'linear-gradient(90deg, transparent, #00d9ff, transparent)',
-                    borderRadius: '9999px',
-                  }}
-                />
-              )}
-
-              <div
-                className="flex flex-col flex-1 rounded-2xl p-7 md:p-8"
-                style={{
-                  background: pkg.featured
-                    ? 'rgba(0,217,255,0.05)'
-                    : 'rgba(10, 14, 26, 0.80)',
-                  backdropFilter: 'blur(20px)',
-                  border: pkg.featured
-                    ? '1px solid rgba(0,217,255,0.28)'
-                    : '1px solid rgba(0,217,255,0.09)',
-                  boxShadow: pkg.featured
-                    ? '0 0 60px rgba(0,217,255,0.08), 0 0 120px rgba(0,217,255,0.04)'
-                    : 'none',
-                  transition: 'border-color 0.4s ease',
-                }}
-              >
-                {pkg.featured && (
-                  <div className="mb-4">
-                    <span
-                      className="font-ui uppercase tracking-widest"
-                      style={{
-                        fontSize: '0.6rem',
-                        color: '#00d9ff',
-                        background: 'rgba(0,217,255,0.1)',
-                        padding: '0.25rem 0.75rem',
-                        borderRadius: '9999px',
-                        border: '1px solid rgba(0,217,255,0.25)',
-                      }}
-                    >
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <h3
-                  className="font-heading mb-4"
-                  style={{
-                    fontSize: '1.05rem',
-                    color: '#dce8f0',
-                    lineHeight: 1.35,
-                    whiteSpace: 'pre-line',
-                  }}
-                >
-                  {pkg.name}
-                </h3>
-
-                <div className="mb-5">
-                  <span
-                    className="font-heading"
-                    style={{ fontSize: '2.5rem', color: pkg.featured ? '#00d9ff' : '#dce8f0' }}
-                  >
-                    {pkg.price}
-                  </span>
-                </div>
-
-                <p
-                  className="font-body flex-1 mb-7"
-                  style={{ fontSize: '1.05rem', color: '#7a92b0', lineHeight: 1.75 }}
-                >
-                  {pkg.description}
-                </p>
-
-                <a
-                  href={pkg.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={pkg.featured ? 'btn-cyan' : 'btn-outline-cyan'}
-                  style={{ textAlign: 'center' }}
-                >
-                  {pkg.cta}
-                </a>
-              </div>
-            </div>
-          ))}
+        {/* Tally application form */}
+        <div className="fade-up">
+          <iframe
+            data-tally-src="https://tally.so/embed/KYoE2X?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="2498"
+            frameBorder="0"
+            marginHeight={0}
+            marginWidth={0}
+            title="Apply to Work with Tito Dreaming With Me"
+          />
         </div>
 
         {/* Disclaimer */}
