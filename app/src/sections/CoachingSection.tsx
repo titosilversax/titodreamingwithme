@@ -30,6 +30,15 @@ const CoachingSection = () => {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const w = 'https://tally.so/widgets/embed.js';
+    if (!document.querySelector(`script[src="${w}"]`)) {
+      const s = document.createElement('script');
+      s.src = w;
+      s.async = true;
+      document.body.appendChild(s);
+    }
+  }, []);
 
   return (
     <section
@@ -77,15 +86,21 @@ const CoachingSection = () => {
           </p>
         </div>
 
-        {/* Tally application form */}
-        <div className="fade-up" style={{ position: 'relative', height: '100vh' }}>
-          <iframe
-            src="https://tally.so/r/KYoE2X?transparentBackground=1&formEventsForwarding=1"
-            width="100%"
-            height="100%"
-            title="Apply to Work with Tito Dreaming With Me"
-            style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, border: 0 }}
-          />
+        {/* Tally popup button */}
+        <div className="fade-up text-center">
+          <button
+            data-tally-open="KYoE2X"
+            data-tally-width="777"
+            data-tally-align-left="1"
+            data-tally-overlay="1"
+            data-tally-emoji-text="👋"
+            data-tally-emoji-animation="wave"
+            data-tally-auto-close="1000"
+            data-tally-form-events-forwarding="1"
+            className="btn-cyan"
+          >
+            Apply to Work with Tito
+          </button>
         </div>
 
         {/* Disclaimer */}
