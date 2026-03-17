@@ -95,7 +95,7 @@ const TermsContent = () => (
 
     <h3 className="font-ui" style={h3Style}>1. About This Service</h3>
     <p className="font-body" style={pStyle}>
-      Tito Dreaming With Me offers peer support coaching, music-based healing guidance, free educational resources, and community access. These services are provided by Tito (titosilversax), a state-certified peer support specialist operating as Tito Dreaming With Me.
+      Tito Dreaming With Me offers peer support coaching, music-based healing guidance, and free educational resources. These services are provided by Tito (titosilversax), a state-certified peer support specialist operating as Tito Dreaming With Me.
     </p>
     <p className="font-body" style={pStyle}>
       <strong style={{ color: '#dce8f0' }}>This is not therapy.</strong> Tito Dreaming With Me is not a licensed mental health practice. No services provided here constitute psychotherapy, clinical counseling, psychiatric treatment, or medical advice. Tito is not a licensed therapist, psychologist, or medical professional.
@@ -124,19 +124,14 @@ const TermsContent = () => (
       Free guides (including the Songwriting &amp; Emotional Expression Guide) are provided as-is for educational and creative purposes. By downloading a free resource, you may be added to an email list. You can unsubscribe at any time.
     </p>
 
-    <h3 className="font-ui" style={h3Style}>6. Community (Skool)</h3>
-    <p className="font-body" style={pStyle}>
-      Access to the Tito Dreaming With Me Skool community is subject to Skool's own terms of service. Members are expected to engage respectfully. We reserve the right to remove members who violate community standards.
-    </p>
-
-    <h3 className="font-ui" style={h3Style}>7. Intellectual Property</h3>
+    <h3 className="font-ui" style={h3Style}>6. Intellectual Property</h3>
     <p className="font-body" style={pStyle}>
       All content on this website — including text, images, music, and guides — is the intellectual property of Tito Dreaming With Me. You may not reproduce, distribute, or use any content for commercial purposes without written permission.
     </p>
 
     <h3 className="font-ui" style={h3Style}>8. Limitation of Liability</h3>
     <p className="font-body" style={pStyle}>
-      Tito Dreaming With Me shall not be held liable for any outcomes resulting from coaching sessions, community participation, or use of free resources. Peer support is a complement to, not a substitute for, professional mental health care. You participate at your own discretion.
+      Tito Dreaming With Me shall not be held liable for any outcomes resulting from coaching sessions or use of free resources. Peer support is a complement to, not a substitute for, professional mental health care. You participate at your own discretion.
     </p>
 
     <h3 className="font-ui" style={h3Style}>9. Changes to These Terms</h3>
@@ -179,7 +174,6 @@ const PrivacyContent = () => (
       <li>Fill out the coaching application form (via Tally) — name, email, and responses to application questions</li>
       <li>Download a free guide — name and email address</li>
       <li>Book a coaching session (via Paperbell) — name, email, and payment information (handled by Paperbell)</li>
-      <li>Join the Skool community — information collected per Skool's privacy policy</li>
     </ul>
     <p className="font-body" style={pStyle}>
       We do not knowingly collect data from anyone under 18.
@@ -192,7 +186,7 @@ const PrivacyContent = () => (
     <ul style={{ ...pStyle, paddingLeft: '1.5rem', marginTop: 0 }}>
       <li>Respond to coaching inquiries and schedule sessions</li>
       <li>Deliver free guides and resources you've requested</li>
-      <li>Send occasional emails about new offerings, guides, or community updates (you can unsubscribe anytime)</li>
+      <li>Send occasional emails about new offerings and guides (you can unsubscribe anytime)</li>
       <li>Improve the quality of our services</li>
     </ul>
     <p className="font-body" style={pStyle}>
@@ -206,7 +200,6 @@ const PrivacyContent = () => (
     <ul style={{ ...pStyle, paddingLeft: '1.5rem', marginTop: 0 }}>
       <li><strong style={{ color: '#dce8f0' }}>Tally</strong> — coaching application form</li>
       <li><strong style={{ color: '#dce8f0' }}>Paperbell</strong> — session booking and payment processing</li>
-      <li><strong style={{ color: '#dce8f0' }}>Skool</strong> — community platform</li>
       <li><strong style={{ color: '#dce8f0' }}>Notion</strong> — free guide delivery</li>
       <li><strong style={{ color: '#dce8f0' }}>Vercel</strong> — website hosting</li>
     </ul>

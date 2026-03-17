@@ -15,8 +15,7 @@ const Navigation = () => {
     { label: 'About', href: '#about' },
     { label: 'Free Guide', href: '#guides' },
     { label: 'Coaching', href: '#coaching' },
-    { label: 'Community', href: '#community' },
-    { label: 'Listen', href: '#listen' },
+{ label: 'Listen', href: '#listen' },
   ];
 
   const scrollToSection = (href: string) => {

@@ -19,11 +19,6 @@ const socialLinks = [
     href: 'https://tiktok.com/@titosilversax',
   },
   {
-    label: 'Skool',
-    handle: 'Community',
-    href: 'https://skool.com',
-  },
-  {
     label: 'Bandcamp',
     handle: 'titosilversax',
     href: 'https://bandcamp.com',

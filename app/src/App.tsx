@@ -6,7 +6,6 @@ import HeroSection from './sections/HeroSection';
 import AboutSection from './sections/AboutSection';
 import GuidesSection from './sections/GuidesSection';
 import CoachingSection from './sections/CoachingSection';
-import SkoolSection from './sections/SkoolSection';
 import ListenSection from './sections/ListenSection';
 import Footer from './components/Footer';
 
@@ -28,7 +27,6 @@ function App() {
         <AboutSection />
         <GuidesSection />
         <CoachingSection />
-        <SkoolSection />
         <ListenSection />
       </main>
       <Footer />
