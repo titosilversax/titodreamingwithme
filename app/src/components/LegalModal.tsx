@@ -146,11 +146,15 @@ const TermsContent = () => (
 
     <h3 className="font-ui" style={h3Style}>10. Contact</h3>
     <p className="font-body" style={pStyle}>
-      For questions about these terms, please reach out via Instagram{' '}
+      For questions about these terms, reach out via email at{' '}
+      <a href="mailto:hello@titodreamingwith.me" style={{ color: '#00d9ff', textDecoration: 'none' }}>
+        hello@titodreamingwith.me
+      </a>
+      , via Instagram{' '}
       <a href="https://instagram.com/titosilversax" target="_blank" rel="noopener noreferrer" style={{ color: '#00d9ff', textDecoration: 'none' }}>
         @titosilversax
-      </a>{' '}
-      or through the application form on this site.
+      </a>
+      , or through the application form on this site.
     </p>
   </div>
 );
@@ -229,11 +233,15 @@ const PrivacyContent = () => (
 
     <h3 className="font-ui" style={h3Style}>8. Contact</h3>
     <p className="font-body" style={pStyle}>
-      For privacy-related questions, please contact us via Instagram{' '}
+      For privacy-related questions, reach out via email at{' '}
+      <a href="mailto:hello@titodreamingwith.me" style={{ color: '#00d9ff', textDecoration: 'none' }}>
+        hello@titodreamingwith.me
+      </a>
+      , via Instagram{' '}
       <a href="https://instagram.com/titosilversax" target="_blank" rel="noopener noreferrer" style={{ color: '#00d9ff', textDecoration: 'none' }}>
         @titosilversax
-      </a>{' '}
-      or through the application form on this site.
+      </a>
+      , or through the application form on this site.
     </p>
   </div>
 );
