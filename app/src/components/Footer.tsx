@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import LegalModal, { LegalTab } from './LegalModal';
+import LegalModal from './LegalModal';
+import type { LegalTab } from './LegalModal';
 
 const socialLinks = [
   {
