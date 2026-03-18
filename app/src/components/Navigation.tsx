@@ -72,7 +72,7 @@ const Navigation = () => {
               </a>
             ))}
             <a
-              href="https://titodreamingwith.me/initial-optin"
+              href="https://titodreamingwith.me/freeguide"
               className="btn-outline-cyan"
               style={{ fontSize: '0.7rem', padding: '0.55rem 1.25rem' }}
             >
@@ -121,7 +121,7 @@ const Navigation = () => {
             </a>
           ))}
           <a
-            href="https://titodreamingwith.me/initial-optin"
+            href="https://titodreamingwith.me/freeguide"
             className="btn-cyan mt-4"
           >
             Free Star Map

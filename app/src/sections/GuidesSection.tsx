@@ -163,7 +163,7 @@ const GuidesSection = () => {
 
             {/* CTA */}
             <div className="pt-2">
-              <a href="https://titodreamingwith.me/initial-optin" className="btn-outline-cyan">
+              <a href="https://titodreamingwith.me/freeguide" className="btn-outline-cyan">
                 Download Free
               </a>
             </div>

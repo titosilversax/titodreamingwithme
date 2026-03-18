@@ -191,7 +191,7 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
         {/* CTA */}
         <div className="hero-line w-full">
           <a
-            href="https://titodreamingwith.me/initial-optin"
+            href="https://titodreamingwith.me/freeguide"
             className="btn-cyan w-full md:w-auto"
           >
             Get Your Free Emotional Star Map
