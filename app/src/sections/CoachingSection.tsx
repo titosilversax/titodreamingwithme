@@ -80,7 +80,7 @@ const CoachingSection = () => {
           </h2>
           <p
             className="fade-up font-body"
-            style={{ color: '#7a92b0', fontSize: '1.1rem', maxWidth: '36rem', margin: '0 auto' }}
+            style={{ color: '#7a92b0', fontSize: '1.65rem', maxWidth: '36rem', margin: '0 auto' }}
           >
             One-on-one healing guidance through music, peer support, and lived experience.
           </p>
