@@ -113,13 +113,13 @@ const GuidesSection = () => {
             <div>
               <h3
                 className="font-heading mb-2"
-                style={{ fontSize: 'clamp(22px, 3vw, 28px)', color: '#dce8f0', lineHeight: 1.3 }}
+                style={{ fontSize: 'clamp(44px, 6vw, 56px)', color: '#dce8f0', lineHeight: 1.3 }}
               >
                 The Emotional Star Map
               </h3>
               <p
                 className="font-body italic"
-                style={{ fontSize: '1rem', color: 'rgba(122,146,176,0.8)' }}
+                style={{ fontSize: '2rem', color: 'rgba(122,146,176,0.8)' }}
               >
                 A Songwriter's Guide to Mapping Feelings in Music
               </p>
@@ -128,7 +128,7 @@ const GuidesSection = () => {
             {/* Description */}
             <p
               className="font-body"
-              style={{ fontSize: '1.05rem', color: '#7a92b0', lineHeight: 1.85 }}
+              style={{ fontSize: '2.1rem', color: '#7a92b0', lineHeight: 1.85 }}
             >
               A creative framework for translating raw emotion into music. Whether you've
               never written a song or are just finding your voice — this guide meets you
@@ -139,7 +139,7 @@ const GuidesSection = () => {
             {/* What you'll get */}
             <ul
               className="font-body flex flex-col gap-2"
-              style={{ fontSize: '0.95rem', color: '#7a92b0' }}
+              style={{ fontSize: '1.9rem', color: '#7a92b0' }}
             >
               {[
                 'Understand how emotions map to music — even without theory',
@@ -156,7 +156,7 @@ const GuidesSection = () => {
             {/* Notion badge */}
             <p
               className="font-ui"
-              style={{ fontSize: '0.75rem', color: 'rgba(122,146,176,0.55)', letterSpacing: '0.04em' }}
+              style={{ fontSize: '1.5rem', color: 'rgba(122,146,176,0.55)', letterSpacing: '0.04em' }}
             >
               ✦ Delivered as an interactive Notion guide — free to duplicate and use at your own pace.
             </p>
