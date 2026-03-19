@@ -155,7 +155,7 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
         <h1
           className="hero-line font-body italic text-balance leading-snug mb-7"
           style={{
-            fontSize: 'clamp(36px, 5vw, 56px)',
+            fontSize: 'clamp(52px, 8vw, 96px)',
             color: '#dce8f0',
             fontWeight: 400,
             lineHeight: 1.35,
