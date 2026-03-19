@@ -119,7 +119,7 @@ const GuidesSection = () => {
               </h3>
               <p
                 className="font-body italic"
-                style={{ fontSize: '2rem', color: 'rgba(122,146,176,0.8)' }}
+                style={{ fontSize: '25px', color: 'rgba(122,146,176,0.8)' }}
               >
                 A Songwriter's Guide to Mapping Feelings in Music
               </p>
@@ -128,7 +128,7 @@ const GuidesSection = () => {
             {/* Description */}
             <p
               className="font-body"
-              style={{ fontSize: '2rem', color: '#7a92b0', lineHeight: 1.85 }}
+              style={{ fontSize: '25px', color: '#7a92b0', lineHeight: 1.85 }}
             >
               A creative framework for translating raw emotion into music. Whether you've
               never written a song or are just finding your voice — this guide meets you
@@ -139,7 +139,7 @@ const GuidesSection = () => {
             {/* What you'll get */}
             <ul
               className="font-body flex flex-col gap-2"
-              style={{ fontSize: '2rem', color: '#7a92b0' }}
+              style={{ fontSize: '25px', color: '#7a92b0' }}
             >
               {[
                 'Understand how emotions map to music — even without theory',
@@ -156,7 +156,7 @@ const GuidesSection = () => {
             {/* Notion badge */}
             <p
               className="font-ui"
-              style={{ fontSize: '2rem', color: 'rgba(122,146,176,0.55)', letterSpacing: '0.04em' }}
+              style={{ fontSize: '13px', color: 'rgba(122,146,176,0.55)', letterSpacing: '0.04em' }}
             >
               ✦ Delivered as an interactive Notion guide — free to duplicate and use at your own pace.
             </p>
