@@ -52,7 +52,7 @@
     background-color: #0a0e1a;
     color: #dce8f0;
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(16px, 1.5vw + 12px, 19px);
+    font-size: clamp(18px, 1.5vw + 14px, 22px);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -136,7 +136,7 @@
     background: linear-gradient(135deg, #00d9ff 0%, #00b8d9 100%);
     color: #060a14;
     font-family: 'Cinzel', serif;
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -163,7 +163,7 @@
     background: transparent;
     color: #00d9ff;
     font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
