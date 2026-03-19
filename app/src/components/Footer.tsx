@@ -21,7 +21,7 @@ const socialLinks = [
   {
     label: 'Bandcamp',
     handle: 'titosilversax',
-    href: 'https://bandcamp.com',
+    href: 'https://titosilversax.bandcamp.com/',
   },
 ];
 
