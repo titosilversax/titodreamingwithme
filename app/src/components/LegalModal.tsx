@@ -206,7 +206,7 @@ const PrivacyContent = () => (
 
     <h3 className="font-ui" style={h3Style}>4. Cookies &amp; Analytics</h3>
     <p className="font-body" style={pStyle}>
-      This website does not currently use tracking cookies or analytics software. Third-party embeds (such as Tally) may set their own cookies per their privacy policies.
+      This website uses Google Analytics (GA4) to understand how visitors interact with the site. Google Analytics may set cookies and collect anonymized usage data. You can opt out via Google's opt-out tools. Third-party embeds (such as Tally) may also set their own cookies per their privacy policies.
     </p>
 
     <h3 className="font-ui" style={h3Style}>5. Data Retention</h3>
