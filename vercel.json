@@ -4,6 +4,7 @@
   "installCommand": "cd app && npm install",
   "framework": "vite",
   "rewrites": [
+    { "source": "/offerings", "destination": "/offerings.html" },
     { "source": "/(.*)", "destination": "/" }
   ]
 }
