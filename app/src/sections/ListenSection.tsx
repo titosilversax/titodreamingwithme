@@ -73,18 +73,18 @@ const ListenSection = () => {
 
         {/* Section heading */}
         <div className="text-center mb-14">
-          <p className="fade-up font-script mb-3" style={{ color: '#00d9ff', fontSize: '1.2rem' }}>
+          <p className="fade-up font-script mb-3" style={{ color: '#00d9ff', fontSize: '1.4rem' }}>
             the music
           </p>
           <h2
             className="fade-up font-heading mb-4"
-            style={{ fontSize: 'clamp(28px, 4.5vw, 36px)', color: '#dce8f0' }}
+            style={{ fontSize: 'clamp(34px, 5vw, 50px)', color: '#dce8f0' }}
           >
             The Music
           </h2>
           <p
             className="fade-up font-body"
-            style={{ color: '#7a92b0', fontSize: '1.1rem', maxWidth: '32rem', margin: '0 auto' }}
+            style={{ color: '#7a92b0', fontSize: '1.25rem', maxWidth: '32rem', margin: '0 auto' }}
           >
             Healing soundscapes for your inner world.
           </p>

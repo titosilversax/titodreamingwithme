@@ -91,7 +91,7 @@ const AboutSection = () => {
 
           {/* Text column */}
           <div className="w-full text-center md:text-left">
-            <p className="fade-up font-script mb-2" style={{ color: '#00d9ff', fontSize: '1.2rem' }}>
+            <p className="fade-up font-script mb-2" style={{ color: '#00d9ff', fontSize: '1.4rem' }}>
               Who is
             </p>
             <h2
@@ -102,15 +102,15 @@ const AboutSection = () => {
             </h2>
 
             <div className="space-y-5">
-              <p className="fade-up font-body" style={{ color: '#7a92b0', fontSize: '1.15rem', lineHeight: 1.8 }}>
+              <p className="fade-up font-body" style={{ color: '#7a92b0', fontSize: '1.25rem', lineHeight: 1.85 }}>
                 I'm a state-certified peer support specialist, soprano saxophonist, and someone who found
                 his way through mental illness partly through music.
               </p>
-              <p className="fade-up font-body" style={{ color: '#7a92b0', fontSize: '1.15rem', lineHeight: 1.8 }}>
+              <p className="fade-up font-body" style={{ color: '#7a92b0', fontSize: '1.25rem', lineHeight: 1.85 }}>
                 I built this space for people carrying heavy things who sense that healing lives
                 somewhere beyond words alone.
               </p>
-              <p className="fade-up font-body" style={{ color: '#7a92b0', fontSize: '1.15rem', lineHeight: 1.8 }}>
+              <p className="fade-up font-body" style={{ color: '#7a92b0', fontSize: '1.25rem', lineHeight: 1.85 }}>
                 This work is rooted in modal music, mystical traditions, and lived experience —
                 not a textbook.
               </p>

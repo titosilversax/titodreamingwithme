@@ -59,16 +59,16 @@ const GuidesSection = () => {
 
         {/* Section heading */}
         <div className="text-center mb-16">
-          <p className="fade-up font-script mb-3" style={{ color: '#00d9ff', fontSize: '1.2rem' }}>
+          <p className="fade-up font-script mb-3" style={{ color: '#00d9ff', fontSize: '1.4rem' }}>
             start here
           </p>
           <h2
             className="fade-up font-heading mb-4"
-            style={{ fontSize: 'clamp(28px, 4.5vw, 36px)', color: '#dce8f0' }}
+            style={{ fontSize: 'clamp(34px, 5vw, 50px)', color: '#dce8f0' }}
           >
             A Free Guide for Songwriters & Creatives
           </h2>
-          <p className="fade-up font-body" style={{ color: '#7a92b0', fontSize: '1.1rem', maxWidth: '520px', margin: '0 auto' }}>
+          <p className="fade-up font-body" style={{ color: '#7a92b0', fontSize: '1.25rem', maxWidth: '520px', margin: '0 auto' }}>
             New to music? Just starting to write? This is exactly where to begin —
             no experience required, only curiosity.
           </p>
@@ -111,6 +111,7 @@ const GuidesSection = () => {
 
             {/* Title */}
             <div>
+              <div style={{ width: 48, height: 2, marginBottom: '1rem', background: 'linear-gradient(90deg, #c9a96e, rgba(201,169,110,0.2))' }} />
               <h3
                 className="font-heading mb-2"
                 style={{ fontSize: 'clamp(44px, 6vw, 56px)', color: '#dce8f0', lineHeight: 1.3 }}
