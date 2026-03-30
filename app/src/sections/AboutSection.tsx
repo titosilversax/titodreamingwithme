@@ -50,7 +50,7 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-10 md:gap-24 items-center">
 
           {/* Photo column */}
-          <div className="fade-up flex justify-center">
+          <div className="fade-up flex flex-col items-center gap-6">
             <div className="relative">
               {/* Outer slow-pulsing ring */}
               <div
@@ -87,6 +87,21 @@ const AboutSection = () => {
                 />
               </div>
             </div>
+
+            {/* Credential cards */}
+            <div className="grid grid-cols-3 gap-3 w-full max-w-xs">
+              {[
+                { icon: '✦', label: 'Peer Support', sub: 'State Certified' },
+                { icon: '♪', label: 'Saxophone', sub: 'Soprano' },
+                { icon: '◎', label: 'Modal Jazz', sub: 'Lived Experience' },
+              ].map(({ icon, label, sub }) => (
+                <div key={label} className="credential-card">
+                  <div style={{ color: '#00d9ff', fontSize: '1rem', marginBottom: '0.25rem' }}>{icon}</div>
+                  <div className="font-ui" style={{ fontSize: '0.65rem', color: '#dce8f0', fontWeight: 600, letterSpacing: '0.04em' }}>{label}</div>
+                  <div className="font-ui" style={{ fontSize: '0.58rem', color: 'rgba(122,146,176,0.7)', letterSpacing: '0.03em' }}>{sub}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Text column */}
@@ -102,7 +117,7 @@ const AboutSection = () => {
             </h2>
 
             <div className="space-y-5">
-              <p className="fade-up font-body" style={{ color: '#7a92b0', fontSize: '1.25rem', lineHeight: 1.85 }}>
+              <p className="fade-up font-body bio-highlight" style={{ color: '#7a92b0', fontSize: '1.25rem', lineHeight: 1.85 }}>
                 I'm a state-certified peer support specialist, soprano saxophonist, and someone who found
                 his way through mental illness partly through music.
               </p>
@@ -110,7 +125,7 @@ const AboutSection = () => {
                 I built this space for people carrying heavy things who sense that healing lives
                 somewhere beyond words alone.
               </p>
-              <p className="fade-up font-body" style={{ color: '#7a92b0', fontSize: '1.25rem', lineHeight: 1.85 }}>
+              <p className="fade-up font-body bio-highlight" style={{ color: '#7a92b0', fontSize: '1.25rem', lineHeight: 1.85 }}>
                 This work is rooted in modal music, mystical traditions, and lived experience —
                 not a textbook.
               </p>

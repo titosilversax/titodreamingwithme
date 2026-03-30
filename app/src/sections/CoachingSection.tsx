@@ -73,8 +73,8 @@ const CoachingSection = () => {
             go deeper
           </p>
           <h2
-            className="fade-up font-heading mb-4"
-            style={{ fontSize: 'clamp(34px, 5vw, 50px)', color: '#dce8f0' }}
+            className="fade-up font-heading text-gradient-cyber mb-4"
+            style={{ fontSize: 'clamp(34px, 5vw, 50px)' }}
           >
             Ready to Go Deeper?
           </h2>
@@ -84,6 +84,23 @@ const CoachingSection = () => {
           >
             One-on-one healing guidance through music, peer support, and lived experience.
           </p>
+        </div>
+
+        {/* Feature points */}
+        <div className="fade-up max-w-lg mx-auto mb-10">
+          <ul className="space-y-4">
+            {[
+              'One-on-one sessions rooted in music and lived experience',
+              'Peer support — not therapy, but deeply real',
+              'Modal music as a tool for emotional mapping and healing',
+              'A safe, non-judgmental space to explore what you\'re carrying',
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3 font-body" style={{ color: '#7a92b0', fontSize: '1.1rem', lineHeight: 1.7 }}>
+                <span style={{ color: 'rgba(0,217,255,0.55)', marginTop: '3px', flexShrink: 0 }}>✦</span>
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Tally popup button */}
@@ -101,6 +118,9 @@ const CoachingSection = () => {
           >
             Apply to Work with Tito
           </button>
+          <p className="font-ui mt-4" style={{ fontSize: '0.72rem', color: 'rgba(122,146,176,0.5)', letterSpacing: '0.05em' }}>
+            Limited spots available · Applications reviewed personally
+          </p>
         </div>
 
         {/* Disclaimer */}

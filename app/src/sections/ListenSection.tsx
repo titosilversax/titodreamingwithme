@@ -73,7 +73,7 @@ const ListenSection = () => {
 
         {/* Section heading */}
         <div className="text-center mb-14">
-          <p className="fade-up font-script mb-3" style={{ color: '#00d9ff', fontSize: '1.4rem' }}>
+          <p className="fade-up font-script mb-3 text-gradient-cyan" style={{ fontSize: '1.4rem' }}>
             the music
           </p>
           <h2
@@ -91,10 +91,7 @@ const ListenSection = () => {
         </div>
 
         {/* Main channel card */}
-        <div
-          className="fade-up glass-card rounded-2xl overflow-hidden"
-          style={{ boxShadow: '0 0 80px rgba(0,217,255,0.05)' }}
-        >
+        <div className="fade-up gradient-border-card overflow-hidden">
           {/* Visual header */}
           <div
             className="relative flex items-center justify-center"
@@ -102,18 +99,20 @@ const ListenSection = () => {
               height: '220px',
               background: 'linear-gradient(135deg, rgba(0,14,30,0.95) 0%, rgba(0,30,50,0.85) 100%)',
               borderBottom: '1px solid rgba(0,217,255,0.1)',
+              overflow: 'hidden',
             }}
           >
-            {/* Concentric circles visual */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              {[120, 90, 60].map((r, i) => (
+            {/* Waveform bars */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ gap: '5px', padding: '0 40px' }}>
+              {[30,55,80,62,95,70,45,88,60,75,50,90,65,40,78,55,92,48,70,58,85,42,68,76,52].map((h, i) => (
                 <div
                   key={i}
-                  className="absolute rounded-full"
+                  className="rounded-full"
                   style={{
-                    width: r * 2,
-                    height: r * 2,
-                    border: '1px solid rgba(0,217,255,0.08)',
+                    width: '3px',
+                    height: `${h}px`,
+                    background: `rgba(0,217,255,${0.08 + (h / 100) * 0.12})`,
+                    animation: `twinkle-bright ${1.5 + (i % 5) * 0.4}s ${(i * 0.1) % 2}s ease-in-out infinite`,
                   }}
                 />
               ))}
@@ -129,19 +128,20 @@ const ListenSection = () => {
                 width: 72,
                 height: 72,
                 background: 'rgba(0,217,255,0.12)',
-                border: '1px solid rgba(0,217,255,0.3)',
-                boxShadow: '0 0 40px rgba(0,217,255,0.12)',
+                border: '1px solid rgba(0,217,255,0.35)',
+                boxShadow: '0 0 40px rgba(0,217,255,0.15), 0 0 80px rgba(0,217,255,0.06)',
                 color: '#00d9ff',
                 textDecoration: 'none',
+                zIndex: 1,
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'rgba(0,217,255,0.22)';
-                e.currentTarget.style.boxShadow = '0 0 60px rgba(0,217,255,0.3)';
+                e.currentTarget.style.boxShadow = '0 0 60px rgba(0,217,255,0.35), 0 0 100px rgba(0,217,255,0.12)';
                 e.currentTarget.style.transform = 'scale(1.08)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = 'rgba(0,217,255,0.12)';
-                e.currentTarget.style.boxShadow = '0 0 40px rgba(0,217,255,0.12)';
+                e.currentTarget.style.boxShadow = '0 0 40px rgba(0,217,255,0.15), 0 0 80px rgba(0,217,255,0.06)';
                 e.currentTarget.style.transform = 'scale(1)';
               }}
               aria-label="Watch on YouTube"

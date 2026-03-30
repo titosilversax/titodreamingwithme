@@ -59,7 +59,7 @@ const GuidesSection = () => {
 
         {/* Section heading */}
         <div className="text-center mb-16">
-          <p className="fade-up font-script mb-3" style={{ color: '#00d9ff', fontSize: '1.4rem' }}>
+          <p className="fade-up font-script mb-3 text-gradient-cyan" style={{ fontSize: '1.4rem' }}>
             start here
           </p>
           <h2
@@ -76,18 +76,7 @@ const GuidesSection = () => {
 
         {/* Single card */}
         <div className="fade-up">
-          <div
-            className="glass-card rounded-2xl p-10 md:p-14 flex flex-col gap-6 group"
-            style={{ transition: 'border-color 0.4s ease, box-shadow 0.4s ease' }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(0,217,255,0.28)';
-              e.currentTarget.style.boxShadow = '0 0 60px rgba(0,217,255,0.06)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(0,217,255,0.10)';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
-          >
+          <div className="gradient-border-card p-10 md:p-14 flex flex-col gap-6">
             {/* Label */}
             <div className="flex items-center gap-3">
               <span

@@ -145,8 +145,8 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
       >
         {/* Brand script line */}
         <p
-          className="hero-line font-script mb-5"
-          style={{ color: '#00d9ff', fontSize: '1.3rem', opacity: 0.85 }}
+          className="hero-line font-script mb-5 text-gradient-cyan"
+          style={{ fontSize: '1.4rem' }}
         >
           tito dreaming with me
         </p>
@@ -198,10 +198,17 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
           </a>
         </div>
 
-        {/* Tagline below CTA */}
+        {/* Credential pills */}
+        <div className="hero-line flex flex-wrap justify-center gap-2 mt-6">
+          {['State-Certified Peer Support', 'Soprano Saxophonist', 'Modal Jazz & Lived Experience'].map((label) => (
+            <span key={label} className="feature-pill">{label}</span>
+          ))}
+        </div>
+
+        {/* Tagline below pills */}
         <p
-          className="hero-line font-script mt-6"
-          style={{ color: 'rgba(0,217,255,0.45)', fontSize: '1.05rem' }}
+          className="hero-line font-script mt-5"
+          style={{ color: 'rgba(0,217,255,0.4)', fontSize: '1.05rem' }}
         >
           Dream into yourself
         </p>
