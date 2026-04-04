@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import LegalModal from './LegalModal';
 import type { LegalTab } from './LegalModal';
 
@@ -49,19 +50,15 @@ const Footer = () => {
         <div className="relative z-10 max-w-4xl mx-auto text-center">
 
           {/* Brand */}
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+          <Link
+            to="/"
             className="font-script inline-block mb-2 transition-colors"
             style={{ color: '#00d9ff', fontSize: '1.75rem', textDecoration: 'none' }}
             onMouseEnter={(e) => (e.currentTarget.style.color = '#a8efff')}
             onMouseLeave={(e) => (e.currentTarget.style.color = '#00d9ff')}
           >
             tito dreaming with me
-          </a>
+          </Link>
 
           {/* Tagline */}
           <p
