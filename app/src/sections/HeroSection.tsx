@@ -1,248 +1,224 @@
-import { useMemo, useEffect, useRef } from 'react';
+import { useEffect, useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Starfield } from '../components/Starfield';
+import { ChevronDown } from 'lucide-react';
 
-interface HeroSectionProps {
-  className?: string;
-}
+gsap.registerPlugin(ScrollTrigger);
 
-// Deterministic pseudo-random so star positions never change between renders
-function makePRNG(seed: number) {
-  let s = seed;
-  return () => {
-    s = (s * 1664525 + 1013904223) >>> 0;
-    return s / 4294967296;
-  };
-}
+export function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headlineRef = useRef<HTMLHeadingElement>(null);
+  const subheadlineRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const microcopyRef = useRef<HTMLDivElement>(null);
+  const scrollHintRef = useRef<HTMLDivElement>(null);
+  const starfieldRef = useRef<HTMLDivElement>(null);
 
-const HeroSection = ({ className = '' }: HeroSectionProps) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const starsRef = useRef<HTMLDivElement>(null);
-  const geoRef = useRef<SVGSVGElement>(null);
-
-  const stars = useMemo(() => {
-    const rand = makePRNG(42);
-    return Array.from({ length: 130 }, (_, i) => ({
-      x: rand() * 100,
-      y: rand() * 100,
-      size: i < 8 ? 2 + rand() * 1.2 : i < 35 ? 1.2 + rand() * 0.8 : 0.6 + rand() * 0.6,
-      opacity: i < 8 ? 0.6 + rand() * 0.4 : i < 35 ? 0.3 + rand() * 0.5 : 0.1 + rand() * 0.3,
-      delay: rand() * 6,
-      duration: 2.5 + rand() * 4,
-      bright: i < 8,
-    }));
-  }, []);
-
+  // Auto-play entrance animation on load
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
-      tl.fromTo(starsRef.current, { opacity: 0 }, { opacity: 1, duration: 2.5 });
-
+      // Starfield fade in
       tl.fromTo(
-        geoRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 3 },
-        '-=2'
+        starfieldRef.current,
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        0
       );
 
-      const lines = contentRef.current?.querySelectorAll('.hero-line');
-      if (lines?.length) {
+      // Headline words animation
+      if (headlineRef.current) {
+        const words = headlineRef.current.querySelectorAll('.word');
         tl.fromTo(
-          lines,
-          { opacity: 0, y: 28 },
-          { opacity: 1, y: 0, duration: 1, stagger: 0.22 },
-          '-=1.8'
+          words,
+          { opacity: 0, y: 26, scale: 0.98 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.9, stagger: 0.04 },
+          0.2
         );
       }
+
+      // Subheadline
+      tl.fromTo(
+        subheadlineRef.current,
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        0.8
+      );
+
+      // CTAs
+      if (ctaRef.current) {
+        const buttons = ctaRef.current.querySelectorAll('button');
+        tl.fromTo(
+          buttons,
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 0.5, stagger: 0.12 },
+          1
+        );
+      }
+
+      // Microcopy and scroll hint
+      tl.fromTo(
+        [microcopyRef.current, scrollHintRef.current],
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5 },
+        1.2
+      );
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
+  // Scroll-driven exit animation
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const ctx = gsap.context(() => {
+      const scrollTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=130%',
+          pin: true,
+          scrub: 0.6,
+          onLeaveBack: () => {
+            // Reset all elements to visible when scrolling back to top
+            gsap.set([headlineRef.current, subheadlineRef.current, ctaRef.current, microcopyRef.current], {
+              opacity: 1, y: 0, scale: 1
+            });
+            gsap.set(scrollHintRef.current, { opacity: 1, y: 0 });
+            gsap.set(starfieldRef.current, { opacity: 1, scale: 1 });
+          }
+        }
+      });
+
+      // ENTRANCE (0-30%): Hold - elements already visible from load animation
+      // SETTLE (30-70%): Hold - static reading window
+      
+      // EXIT (70-100%)
+      // Headline block exit
+      scrollTl.fromTo(
+        headlineRef.current,
+        { opacity: 1, y: 0, scale: 1 },
+        { opacity: 0, y: '-18vh', scale: 0.96, ease: 'power2.in' },
+        0.70
+      );
+
+      // Subheadline exit
+      scrollTl.fromTo(
+        subheadlineRef.current,
+        { opacity: 1, y: 0 },
+        { opacity: 0, y: '-12vh', ease: 'power2.in' },
+        0.72
+      );
+
+      // Starfield exit
+      scrollTl.fromTo(
+        starfieldRef.current,
+        { opacity: 1, scale: 1 },
+        { opacity: 0.35, scale: 1.06, ease: 'power2.in' },
+        0.70
+      );
+
+      // CTA row exit
+      scrollTl.fromTo(
+        ctaRef.current,
+        { opacity: 1, y: 0 },
+        { opacity: 0, y: '-10vh', ease: 'power2.in' },
+        0.75
+      );
+
+      // Bottom elements exit
+      scrollTl.fromTo(
+        [microcopyRef.current, scrollHintRef.current],
+        { opacity: 1, y: 0 },
+        { opacity: 0, y: '6vh', ease: 'power2.in' },
+        0.78
+      );
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
+  const scrollToOfferings = () => {
+    const offeringsSection = document.getElementById('offerings');
+    if (offeringsSection) {
+      offeringsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section
+    <section 
       ref={sectionRef}
       id="hero"
-      className={`relative min-h-screen flex flex-col items-center justify-center overflow-hidden ${className}`}
+      className="section-pinned flex items-center justify-center z-10"
     >
-      {/* Starfield */}
-      <div ref={starsRef} className="absolute inset-0 pointer-events-none" style={{ opacity: 0 }}>
-        {stars.map((star, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              left: `${star.x}%`,
-              top: `${star.y}%`,
-              width: `${star.size}px`,
-              height: `${star.size}px`,
-              backgroundColor: star.bright ? '#a8efff' : '#dce8f0',
-              opacity: star.opacity,
-              animation: `${star.bright ? 'twinkle-bright' : 'twinkle'} ${star.duration}s ${star.delay}s ease-in-out infinite`,
-            }}
-          />
-        ))}
+      {/* Starfield Background */}
+      <div ref={starfieldRef} className="absolute inset-0">
+        <Starfield starCount={140} />
       </div>
 
-      {/* Sacred geometry — subtle hexagonal grid */}
-      <svg
-        ref={geoRef}
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        style={{ opacity: 0 }}
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <defs>
-          <pattern id="hex" x="0" y="0" width="90" height="104" patternUnits="userSpaceOnUse">
-            <polygon
-              points="45,3 87,26 87,78 45,101 3,78 3,26"
-              fill="none"
-              stroke="#00d9ff"
-              strokeWidth="0.4"
-              opacity="0.35"
-            />
-          </pattern>
-          <radialGradient id="hexFade" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="white" stopOpacity="0.05" />
-            <stop offset="60%" stopColor="white" stopOpacity="0.02" />
-            <stop offset="100%" stopColor="white" stopOpacity="0" />
-          </radialGradient>
-          <mask id="hexMask">
-            <rect width="100%" height="100%" fill="url(#hexFade)" />
-          </mask>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#hex)" mask="url(#hexMask)" />
+      {/* Glow behind headline */}
+      <div className="absolute left-1/2 top-[52%] -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[60vh] glow-gold opacity-50" />
 
-        {/* Concentric rings at center — sacred geometry feel */}
-        {[80, 160, 240, 340].map((r, i) => (
-          <circle
-            key={i}
-            cx="50%"
-            cy="50%"
-            r={r}
-            fill="none"
-            stroke="#00d9ff"
-            strokeWidth="0.3"
-            opacity={0.08 - i * 0.015}
-          />
-        ))}
-      </svg>
-
-      {/* Radial ambient glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 65% 55% at 50% 48%, rgba(0,217,255,0.055) 0%, transparent 70%)',
-        }}
-      />
-
-      {/* Hero content */}
-      <div
-        ref={contentRef}
-        className="relative z-10 text-center px-4 md:px-6 max-w-3xl mx-auto pt-24 md:pt-28"
-      >
-        {/* Brand script line */}
-        <p
-          className="hero-line font-script mb-5 text-gradient-cyan"
-          style={{ fontSize: '1.4rem' }}
+      {/* Main Content */}
+      <div className="relative z-10 text-center px-6" style={{ width: 'min(78vw, 980px)' }}>
+        {/* Headline */}
+        <h1 
+          ref={headlineRef}
+          className="font-display font-black text-text-primary uppercase tracking-wide-cinematic leading-display mb-6"
+          style={{ fontSize: 'clamp(2rem, 8vw, 5.5rem)' }}
         >
-          tito dreaming with me
-        </p>
-
-        {/* Main headline */}
-        <h1
-          className="hero-line font-body italic text-balance leading-snug mb-7"
-          style={{
-            fontSize: 'clamp(39px, 6vw, 72px)',
-            color: '#dce8f0',
-            fontWeight: 400,
-            lineHeight: 1.35,
-          }}
-        >
-          "If music has ever felt like the only thing that understood you —
-          you're in the right place."
+          <span className="word inline-block">Healing</span>{' '}
+          <span className="word inline-block">Soundscapes</span>
         </h1>
 
-        {/* Thin divider */}
-        <div
-          className="hero-line mx-auto mb-7"
-          style={{
-            width: 48,
-            height: 1,
-            background:
-              'linear-gradient(90deg, transparent, rgba(0,217,255,0.6), transparent)',
-          }}
-        />
-
         {/* Subheadline */}
-        <p
-          className="hero-line font-body text-balance mb-10"
-          style={{
-            fontSize: 'clamp(16px, 2.2vw, 1.25rem)',
-            color: '#7a92b0',
-            lineHeight: 1.7,
-          }}
+        <p 
+          ref={subheadlineRef}
+          className="text-text-secondary text-lg md:text-xl lg:text-2xl mb-10 font-light"
         >
-          Healing guidance through music, peer support, and lived experience.
+          For the ones who feel deeply.
         </p>
 
-        {/* CTA */}
-        <div className="hero-line w-full">
-          <a
-            href="https://prismatic-music-garden.kit.com/freeguide"
-            className="btn-cyan w-full md:w-auto"
+        {/* CTAs */}
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button 
+            onClick={scrollToOfferings}
+            className="btn-hover px-8 py-3 bg-accent-gold text-bg-primary font-medium rounded-full text-sm tracking-wide transition-all hover:shadow-glow"
           >
-            Get Your Free Emotional Star Map
-          </a>
+            Explore Offerings
+          </button>
+          <button 
+            onClick={() => window.open('https://youtube.com/@titosilversax', '_blank')}
+            className="btn-hover px-8 py-3 border border-text-primary/20 text-text-primary rounded-full text-sm tracking-wide transition-all hover:border-accent-gold hover:text-accent-gold"
+          >
+            Listen on YouTube
+          </button>
         </div>
+      </div>
 
-        {/* Credential pills */}
-        <div className="hero-line flex flex-wrap justify-center gap-2 mt-6">
-          {['State-Certified Peer Support', 'Soprano Saxophonist', 'Modal Jazz & Lived Experience'].map((label) => (
-            <span key={label} className="feature-pill">{label}</span>
-          ))}
-        </div>
-
-        {/* Tagline below pills */}
-        <p
-          className="hero-line font-script mt-5"
-          style={{ color: 'rgba(0,217,255,0.4)', fontSize: '1.05rem' }}
-        >
-          Dream into yourself
+      {/* Bottom Microcopy */}
+      <div 
+        ref={microcopyRef}
+        className="absolute left-[6vw] bottom-[6vh] max-w-[34vw] text-left"
+      >
+        <p className="font-mono text-xs text-text-secondary/70 tracking-cinematic leading-relaxed">
+          Peer support + modal music.<br />
+          Built from lived experience.
         </p>
       </div>
 
-      {/* Bottom fade */}
-      <div
-        className="absolute bottom-0 left-0 right-0 pointer-events-none"
-        style={{
-          height: '120px',
-          background: 'linear-gradient(to top, #0a0e1a, transparent)',
-        }}
-      />
-
-      {/* Scroll hint */}
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
-        style={{ color: 'rgba(122,146,176,0.5)' }}
+      {/* Scroll Hint */}
+      <div 
+        ref={scrollHintRef}
+        className="absolute right-[6vw] bottom-[6vh] flex flex-col items-center gap-2"
       >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M12 5v14M5 12l7 7 7-7" />
-        </svg>
+        <span className="font-mono text-xs text-text-secondary/50 tracking-cinematic">Scroll</span>
+        <ChevronDown className="w-4 h-4 text-text-secondary/50 scroll-hint" />
       </div>
     </section>
   );
-};
-
-export default HeroSection;
+}

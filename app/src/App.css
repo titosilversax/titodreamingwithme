@@ -1,3 +1,37 @@
-#root {
-  width: 100%;
+/* App-specific styles */
+
+/* Ensure smooth scrolling behavior */
+html {
+  scroll-behavior: auto;
+}
+
+/* Pin spacer styling */
+.pin-spacer {
+  background-color: #0B0D10 !important;
+}
+
+/* Section transitions */
+section {
+  will-change: transform, opacity;
+}
+
+/* Ensure proper z-index stacking */
+.section-pinned {
+  backface-visibility: hidden;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .section-pinned {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .section-pinned {
+    height: auto;
+    min-height: 100vh;
+  }
 }
