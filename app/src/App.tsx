@@ -14,14 +14,13 @@ function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    ScrollTrigger.getAll().forEach(st => st.kill());
   }, [location.pathname]);
 
   return (
     <div className="relative" style={{ backgroundColor: '#0a0e1a' }}>
       <div className="noise-overlay" />
       <Navigation />
-      <main>
+      <main key={location.pathname}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/offerings" element={<OfferingsPage />} />
