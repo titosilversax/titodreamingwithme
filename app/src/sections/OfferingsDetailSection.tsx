@@ -218,7 +218,8 @@ export function OfferingsDetailSection() {
   }, []);
 
   return (
-    <section 
+    <section
+      id="offerings"
       ref={sectionRef}
       className="relative bg-bg-primary py-20 md:py-32 z-35"
     >
