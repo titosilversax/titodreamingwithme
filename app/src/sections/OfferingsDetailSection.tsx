@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
@@ -174,86 +174,45 @@ export function OfferingsDetailSection() {
   const processRef = useRef<HTMLDivElement>(null);
   const faqRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
+  useEffect(() => {
     const ctx = gsap.context(() => {
-      // Header animation
-      gsap.fromTo(
-        headerRef.current,
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: headerRef.current,
-            start: 'top 80%',
-            end: 'top 50%',
-            scrub: 0.4,
-          },
-        }
-      );
+      const fadeUp = (el: Element | null, delay = 0) => {
+        if (!el) return;
+        gsap.fromTo(
+          el,
+          { y: 24, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            delay,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 85%' },
+          }
+        );
+      };
 
-      // Cards stagger animation
-      cardsRef.current.forEach((card) => {
+      fadeUp(headerRef.current);
+
+      cardsRef.current.forEach((card, i) => {
         if (!card) return;
         gsap.fromTo(
           card,
-          { y: 60, opacity: 0 },
+          { y: 24, opacity: 0 },
           {
             y: 0,
             opacity: 1,
             duration: 0.6,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 85%',
-              end: 'top 60%',
-              scrub: 0.4,
-            },
+            delay: i * 0.08,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: card, start: 'top 88%' },
           }
         );
       });
 
-      // Process section
-      gsap.fromTo(
-        processRef.current,
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: processRef.current,
-            start: 'top 80%',
-            end: 'top 50%',
-            scrub: 0.4,
-          },
-        }
-      );
-
-      // FAQ section
-      gsap.fromTo(
-        faqRef.current,
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: faqRef.current,
-            start: 'top 80%',
-            end: 'top 50%',
-            scrub: 0.4,
-          },
-        }
-      );
-    }, section);
+      fadeUp(processRef.current);
+      fadeUp(faqRef.current);
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);

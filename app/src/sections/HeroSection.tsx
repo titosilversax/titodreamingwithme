@@ -1,197 +1,92 @@
-import { useEffect, useRef, useLayoutEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Starfield } from '../components/Starfield';
 import { ChevronDown } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subheadlineRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const microcopyRef = useRef<HTMLDivElement>(null);
-  const scrollHintRef = useRef<HTMLDivElement>(null);
-  const starfieldRef = useRef<HTMLDivElement>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
 
-  // Auto-play entrance animation on load
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      // Starfield fade in
       tl.fromTo(
-        starfieldRef.current,
-        { opacity: 0, y: 12 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        0
+        headlineRef.current?.querySelectorAll('.word') ?? [],
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.9, stagger: 0.06 },
+        0.1
       );
-
-      // Headline words animation
-      if (headlineRef.current) {
-        const words = headlineRef.current.querySelectorAll('.word');
-        tl.fromTo(
-          words,
-          { opacity: 0, y: 26, scale: 0.98 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.9, stagger: 0.04 },
-          0.2
-        );
-      }
-
-      // Subheadline
-      tl.fromTo(
-        subheadlineRef.current,
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        0.8
-      );
-
-      // CTAs
-      if (ctaRef.current) {
-        const buttons = ctaRef.current.querySelectorAll('button');
-        tl.fromTo(
-          buttons,
-          { opacity: 0, y: 14 },
-          { opacity: 1, y: 0, duration: 0.5, stagger: 0.12 },
-          1
-        );
-      }
-
-      // Microcopy and scroll hint
-      tl.fromTo(
-        [microcopyRef.current, scrollHintRef.current],
-        { opacity: 0 },
-        { opacity: 1, duration: 0.5 },
-        1.2
-      );
+      tl.fromTo(subheadlineRef.current, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7 }, 0.5);
+      tl.fromTo(ctaRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6 }, 0.8);
+      tl.fromTo(bottomRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 }, 1.1);
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
-  // Scroll-driven exit animation
-  useLayoutEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.6,
-          onLeaveBack: () => {
-            // Reset all elements to visible when scrolling back to top
-            gsap.set([headlineRef.current, subheadlineRef.current, ctaRef.current, microcopyRef.current], {
-              opacity: 1, y: 0, scale: 1
-            });
-            gsap.set(scrollHintRef.current, { opacity: 1, y: 0 });
-            gsap.set(starfieldRef.current, { opacity: 1, scale: 1 });
-          }
-        }
-      });
-
-      // ENTRANCE (0-30%): Hold - elements already visible from load animation
-      // SETTLE (30-70%): Hold - static reading window
-      
-      // EXIT (70-100%) — simple fade out
-      scrollTl.fromTo(
-        [headlineRef.current, subheadlineRef.current, ctaRef.current, microcopyRef.current, scrollHintRef.current],
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.70
-      );
-
-      scrollTl.fromTo(
-        starfieldRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.70
-      );
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
-
-  const scrollToOfferings = () => {
-    const offeringsSection = document.getElementById('offerings');
-    if (offeringsSection) {
-      offeringsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section 
+    <section
       ref={sectionRef}
       id="hero"
-      className="section-pinned flex items-center justify-center z-10"
+      className="relative flex items-center justify-center z-10 min-h-screen min-h-[100dvh]"
     >
-      {/* Starfield Background */}
-      <div ref={starfieldRef} className="absolute inset-0">
-        <Starfield starCount={140} />
+      {/* Background photo */}
+      <div className="absolute inset-0">
+        <img
+          src="/hero-bg.jpg"
+          alt=""
+          className="w-full h-full object-cover object-center"
+          style={{ filter: 'saturate(0.6) contrast(1.05)' }}
+        />
+        <div className="absolute inset-0" style={{ background: 'rgba(11,13,16,0.55)' }} />
       </div>
 
-      {/* Glow behind headline */}
-      <div className="absolute left-1/2 top-[52%] -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[60vh] glow-gold opacity-50" />
+      <div className="absolute inset-0">
+        <Starfield starCount={60} />
+      </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 text-center px-6" style={{ width: 'min(78vw, 980px)' }}>
-        {/* Headline */}
-        <h1 
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[60vh] glow-gold opacity-30 pointer-events-none" />
+
+      <div className="relative z-10 text-center px-6 w-full max-w-3xl mx-auto">
+        <h1
           ref={headlineRef}
-          className="font-display font-black text-text-primary uppercase tracking-wide-cinematic leading-display mb-6"
-          style={{ fontSize: 'clamp(2rem, 8vw, 5.5rem)' }}
+          className="font-display font-black text-text-primary uppercase tracking-wide-cinematic leading-display mb-5"
+          style={{ fontSize: 'clamp(2.4rem, 8vw, 5.5rem)' }}
         >
           <span className="word inline-block">Healing</span>{' '}
           <span className="word inline-block">Soundscapes</span>
         </h1>
 
-        {/* Subheadline */}
-        <p 
+        <p
           ref={subheadlineRef}
-          className="text-text-secondary text-lg md:text-xl lg:text-2xl mb-10 font-light"
+          className="text-text-secondary text-base md:text-xl mb-8 font-light"
         >
           For the ones who feel deeply.
         </p>
 
-        {/* CTAs */}
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button 
-            onClick={scrollToOfferings}
-            className="btn-hover px-8 py-3 bg-accent-gold text-bg-primary font-medium rounded-full text-sm tracking-wide transition-all hover:shadow-glow"
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <button
+            onClick={() => document.getElementById('offerings')?.scrollIntoView({ behavior: 'smooth' })}
+            className="w-full sm:w-auto btn-hover px-8 py-3 bg-accent-gold text-bg-primary font-medium rounded-full text-sm tracking-wide transition-all hover:shadow-glow"
           >
             Explore Offerings
           </button>
-          <button 
+          <button
             onClick={() => window.open('https://youtube.com/@titosilversax', '_blank')}
-            className="btn-hover px-8 py-3 border border-text-primary/20 text-text-primary rounded-full text-sm tracking-wide transition-all hover:border-accent-gold hover:text-accent-gold"
+            className="w-full sm:w-auto btn-hover px-8 py-3 border border-text-primary/20 text-text-primary rounded-full text-sm tracking-wide transition-all hover:border-accent-gold hover:text-accent-gold"
           >
             Listen on YouTube
           </button>
         </div>
       </div>
 
-      {/* Bottom Microcopy */}
-      <div 
-        ref={microcopyRef}
-        className="absolute left-[6vw] bottom-[6vh] max-w-[34vw] text-left"
-      >
-        <p className="font-mono text-xs text-text-secondary/70 tracking-cinematic leading-relaxed">
-          Peer support + modal music.<br />
-          Built from lived experience.
-        </p>
-      </div>
-
-      {/* Scroll Hint */}
-      <div 
-        ref={scrollHintRef}
-        className="absolute right-[6vw] bottom-[6vh] flex flex-col items-center gap-2"
-      >
-        <span className="font-mono text-xs text-text-secondary/50 tracking-cinematic">Scroll</span>
-        <ChevronDown className="w-4 h-4 text-text-secondary/50 scroll-hint" />
+      <div ref={bottomRef} className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+        <span className="font-mono text-xs text-text-secondary/40 tracking-cinematic">Scroll</span>
+        <ChevronDown className="w-4 h-4 text-text-secondary/40 animate-bounce" />
       </div>
     </section>
   );
