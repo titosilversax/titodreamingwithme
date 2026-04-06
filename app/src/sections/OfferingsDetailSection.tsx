@@ -80,12 +80,9 @@ const services: ServiceDetail[] = [
       { icon: <Headphones className="w-4 h-4" />, text: '45-min live soundscape' },
       { icon: <FileText className="w-4 h-4" />, text: 'Written integration notes' },
     ],
-    cta: 'Book a session',
+    cta: 'Join the waitlist',
     ctaAction: () => {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
+      window.open('https://prismatic-music-garden.kit.com/freeguide', '_blank');
     },
   },
   {
@@ -238,6 +235,12 @@ export function OfferingsDetailSection() {
           <p className="text-text-secondary text-base md:text-lg max-w-2xl mx-auto">
             Every offering was built from the inside out — from someone who found his way back through sound.
           </p>
+          <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-gold/30 bg-accent-gold/10 backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-gold flex-shrink-0" />
+            <span className="font-mono text-xs text-accent-gold tracking-cinematic">
+              Available in English &amp; Spanish — También en español
+            </span>
+          </div>
         </div>
 
         {/* Service Cards Grid */}
