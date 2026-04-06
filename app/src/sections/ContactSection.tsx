@@ -2,27 +2,7 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Starfield } from '../components/Starfield';
-import { Youtube, Instagram, Music } from 'lucide-react';
-
 gsap.registerPlugin(ScrollTrigger);
-
-const links = [
-  {
-    icon: <Youtube className="w-5 h-5" />,
-    label: 'YouTube',
-    href: 'https://youtube.com/@titosilversax',
-  },
-  {
-    icon: <Instagram className="w-5 h-5" />,
-    label: 'Instagram',
-    href: 'https://instagram.com/titosilversax',
-  },
-  {
-    icon: <Music className="w-5 h-5" />,
-    label: 'Bandcamp',
-    href: 'https://titosilversax.bandcamp.com/',
-  },
-];
 
 export function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -89,25 +69,10 @@ export function ContactSection() {
 
         <a
           href="mailto:hello@titodreamingwith.me"
-          className="inline-block btn-hover px-8 py-3 bg-accent-gold text-bg-primary font-medium rounded-full text-sm tracking-wide transition-all hover:shadow-glow mb-12"
+          className="inline-block btn-hover px-8 py-3 bg-accent-gold text-bg-primary font-medium rounded-full text-sm tracking-wide transition-all hover:shadow-glow"
         >
           hello@titodreamingwith.me
         </a>
-
-        <div className="flex items-center justify-center gap-8">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2 text-text-secondary hover:text-accent-gold transition-colors"
-            >
-              {link.icon}
-              <span className="font-mono text-xs tracking-cinematic">{link.label}</span>
-            </a>
-          ))}
-        </div>
       </div>
     </section>
   );
