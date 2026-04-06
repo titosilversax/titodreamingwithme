@@ -97,45 +97,19 @@ export function HeroSection() {
       // ENTRANCE (0-30%): Hold - elements already visible from load animation
       // SETTLE (30-70%): Hold - static reading window
       
-      // EXIT (70-100%)
-      // Headline block exit
+      // EXIT (70-100%) — simple fade out
       scrollTl.fromTo(
-        headlineRef.current,
-        { opacity: 1, y: 0, scale: 1 },
-        { opacity: 0, y: '-18vh', scale: 0.96, ease: 'power2.in' },
+        [headlineRef.current, subheadlineRef.current, ctaRef.current, microcopyRef.current, scrollHintRef.current],
+        { opacity: 1 },
+        { opacity: 0, ease: 'power2.in' },
         0.70
       );
 
-      // Subheadline exit
-      scrollTl.fromTo(
-        subheadlineRef.current,
-        { opacity: 1, y: 0 },
-        { opacity: 0, y: '-12vh', ease: 'power2.in' },
-        0.72
-      );
-
-      // Starfield exit
       scrollTl.fromTo(
         starfieldRef.current,
-        { opacity: 1, scale: 1 },
-        { opacity: 0.35, scale: 1.06, ease: 'power2.in' },
+        { opacity: 1 },
+        { opacity: 0, ease: 'power2.in' },
         0.70
-      );
-
-      // CTA row exit
-      scrollTl.fromTo(
-        ctaRef.current,
-        { opacity: 1, y: 0 },
-        { opacity: 0, y: '-10vh', ease: 'power2.in' },
-        0.75
-      );
-
-      // Bottom elements exit
-      scrollTl.fromTo(
-        [microcopyRef.current, scrollHintRef.current],
-        { opacity: 1, y: 0 },
-        { opacity: 0, y: '6vh', ease: 'power2.in' },
-        0.78
       );
     }, section);
 

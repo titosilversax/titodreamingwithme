@@ -35,52 +35,22 @@ export function ContactSection() {
         }
       });
 
-      // Headline entrance
+      // ENTRANCE (0-30%)
       scrollTl.fromTo(
-        headlineRef.current,
-        { x: '-50vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'power2.out' },
+        [headlineRef.current, formRef.current, microlineRef.current],
+        { opacity: 0 },
+        { opacity: 1, ease: 'power2.out', stagger: 0.05 },
         0
-      );
-
-      // Form panel entrance
-      scrollTl.fromTo(
-        formRef.current,
-        { x: '50vw', opacity: 0, scale: 0.98 },
-        { x: 0, opacity: 1, scale: 1, ease: 'power2.out' },
-        0.05
-      );
-
-      // Microline entrance
-      scrollTl.fromTo(
-        microlineRef.current,
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'power2.out' },
-        0.15
       );
 
       // SETTLE (30-70%): Hold
 
       // EXIT (70-100%)
       scrollTl.fromTo(
-        headlineRef.current,
-        { x: 0, opacity: 1 },
-        { x: '-10vw', opacity: 0, ease: 'power2.in' },
+        [headlineRef.current, formRef.current, microlineRef.current],
+        { opacity: 1 },
+        { opacity: 0, ease: 'power2.in' },
         0.70
-      );
-
-      scrollTl.fromTo(
-        formRef.current,
-        { x: 0, opacity: 1 },
-        { x: '10vw', opacity: 0, ease: 'power2.in' },
-        0.72
-      );
-
-      scrollTl.fromTo(
-        microlineRef.current,
-        { y: 0, opacity: 1 },
-        { y: 20, opacity: 0, ease: 'power2.in' },
-        0.74
       );
 
     }, section);

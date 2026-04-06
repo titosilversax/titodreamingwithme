@@ -4,7 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Navigation } from './components/Navigation';
 import { HeroSection } from './sections/HeroSection';
 import { BeliefSection } from './sections/BeliefSection';
-import { OfferingsSection } from './sections/OfferingsSection';
 import { OfferingsDetailSection } from './sections/OfferingsDetailSection';
 import { ContactSection } from './sections/ContactSection';
 import { FooterSection } from './sections/FooterSection';
@@ -89,7 +88,6 @@ function App() {
       <main className="relative">
         <HeroSection />
         <BeliefSection />
-        <OfferingsSection />
         <OfferingsDetailSection />
         <ContactSection />
         <FooterSection />

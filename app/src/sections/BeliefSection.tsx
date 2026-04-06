@@ -27,83 +27,36 @@ export function BeliefSection() {
         }
       });
 
-      // Background Image Animation
       // ENTRANCE (0-30%)
       scrollTl.fromTo(
         bgImageRef.current,
-        { scale: 1.10, opacity: 0.6, x: '4vw' },
-        { scale: 1.00, opacity: 1, x: 0, ease: 'none' },
+        { scale: 1.06, opacity: 0 },
+        { scale: 1.00, opacity: 1, ease: 'none' },
         0
       );
 
-      // Headline block entrance
       scrollTl.fromTo(
-        headlineRef.current,
-        { x: '-50vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'power2.out' },
-        0
-      );
-
-      // Caption entrance
-      scrollTl.fromTo(
-        captionRef.current,
-        { y: 24, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'power2.out' },
-        0.15
-      );
-
-      // Paragraph entrance
-      scrollTl.fromTo(
-        paragraphRef.current,
-        { x: '10vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'power2.out' },
-        0.20
-      );
-
-      // Badge entrance
-      scrollTl.fromTo(
-        badgeRef.current,
-        { y: '-6vh', opacity: 0 },
-        { y: 0, opacity: 1, ease: 'power2.out' },
-        0
+        [headlineRef.current, captionRef.current, paragraphRef.current, badgeRef.current],
+        { opacity: 0 },
+        { opacity: 1, ease: 'power2.out', stagger: 0.05 },
+        0.10
       );
 
       // SETTLE (30-70%): Elements hold position
 
-      // EXIT (70-100%)
+      // EXIT (70-100%) — simple fade out
+      scrollTl.fromTo(
+        [headlineRef.current, captionRef.current, paragraphRef.current, badgeRef.current],
+        { opacity: 1 },
+        { opacity: 0, ease: 'power2.in' },
+        0.70
+      );
+
       scrollTl.fromTo(
         bgImageRef.current,
-        { scale: 1, opacity: 1, x: 0 },
-        { scale: 1.06, opacity: 0.35, x: '-3vw', ease: 'power2.in' },
-        0.70
-      );
-
-      scrollTl.fromTo(
-        headlineRef.current,
-        { x: 0, opacity: 1 },
-        { x: '-18vw', opacity: 0, ease: 'power2.in' },
-        0.70
-      );
-
-      scrollTl.fromTo(
-        captionRef.current,
-        { y: 0, opacity: 1 },
-        { y: '-10vh', opacity: 0, ease: 'power2.in' },
+        { opacity: 1 },
+        { opacity: 0, ease: 'power2.in' },
         0.72
-      );
-
-      scrollTl.fromTo(
-        paragraphRef.current,
-        { x: 0, opacity: 1 },
-        { x: '6vw', opacity: 0, ease: 'power2.in' },
-        0.74
-      );
-
-      scrollTl.fromTo(
-        badgeRef.current,
-        { y: 0, opacity: 1 },
-        { y: '-4vh', opacity: 0, ease: 'power2.in' },
-        0.76
       );
 
     }, section);
