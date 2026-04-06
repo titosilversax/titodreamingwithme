@@ -57,10 +57,7 @@ const services: ServiceDetail[] = [
     ],
     cta: 'Apply for a spot',
     ctaAction: () => {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
+      window.open('https://tally.so/r/D4D9JN', '_blank');
     },
     highlighted: true,
   },
