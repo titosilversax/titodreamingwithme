@@ -363,7 +363,7 @@ export function OfferingsDetailSection() {
               {
                 step: '01',
                 title: 'Reach Out',
-                description: 'Send me a message or book a free 15-minute call. Tell me what you\'re navigating and what you\'re hoping to find.',
+                description: 'Send me a voice memo on Instagram or drop me an email. Tell me what you\'re navigating and what you\'re hoping to find.',
               },
               {
                 step: '02',
