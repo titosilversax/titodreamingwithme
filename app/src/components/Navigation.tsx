@@ -42,7 +42,7 @@ export function Navigation() {
           {/* Logo */}
           <button 
             onClick={() => scrollToSection('hero')}
-            className="font-mono text-xs tracking-cinematic text-text-primary hover:text-accent-gold transition-colors"
+            className="font-mono text-sm md:text-base tracking-cinematic text-text-primary hover:text-accent-gold transition-colors"
           >
             tito dreaming with me
           </button>
