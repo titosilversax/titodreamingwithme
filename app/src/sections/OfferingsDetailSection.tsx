@@ -32,6 +32,8 @@ interface ServiceDetail {
   includes: { icon: React.ReactNode; text: string }[];
   cta: string;
   ctaAction: () => void;
+  cta2?: string;
+  ctaAction2?: () => void;
   highlighted?: boolean;
 }
 
@@ -57,6 +59,10 @@ const services: ServiceDetail[] = [
     ],
     cta: 'Apply for a spot',
     ctaAction: () => {
+      window.open('https://tally.so/r/KYoE2X', '_blank');
+    },
+    cta2: 'Send a voice memo first',
+    ctaAction2: () => {
       window.open('https://tally.so/r/D4D9JN', '_blank');
     },
     highlighted: true,
@@ -314,17 +320,28 @@ export function OfferingsDetailSection() {
                 </ul>
               </div>
 
-              <button
-                onClick={service.ctaAction}
-                className={`w-full btn-hover py-3 px-6 rounded-full font-medium text-sm tracking-wide flex items-center justify-center gap-2 transition-all ${
-                  service.highlighted
-                    ? 'bg-accent-gold text-bg-primary hover:shadow-glow'
-                    : 'border border-text-primary/20 text-text-primary hover:border-accent-gold hover:text-accent-gold'
-                }`}
-              >
-                {service.cta}
-                <ArrowRight className="w-4 h-4" />
-              </button>
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={service.ctaAction}
+                  className={`w-full btn-hover py-3 px-6 rounded-full font-medium text-sm tracking-wide flex items-center justify-center gap-2 transition-all ${
+                    service.highlighted
+                      ? 'bg-accent-gold text-bg-primary hover:shadow-glow'
+                      : 'border border-text-primary/20 text-text-primary hover:border-accent-gold hover:text-accent-gold'
+                  }`}
+                >
+                  {service.cta}
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                {service.cta2 && service.ctaAction2 && (
+                  <button
+                    onClick={service.ctaAction2}
+                    className="w-full btn-hover py-3 px-6 rounded-full font-medium text-sm tracking-wide flex items-center justify-center gap-2 transition-all border border-accent-gold/30 text-accent-gold hover:border-accent-gold"
+                  >
+                    {service.cta2}
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
             </div>
           ))}
         </div>
