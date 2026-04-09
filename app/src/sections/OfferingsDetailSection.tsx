@@ -88,7 +88,7 @@ const services: ServiceDetail[] = [
     ],
     cta: 'Join the waitlist',
     ctaAction: () => {
-      window.open('https://prismatic-music-garden.kit.com/freeguide', '_blank');
+      window.open('https://outreach.titodreamingwith.me/freeguide', '_blank');
     },
   },
   {
@@ -112,7 +112,7 @@ const services: ServiceDetail[] = [
     ],
     cta: 'Get the free guide',
     ctaAction: () => {
-      window.open('https://prismatic-music-garden.kit.com/freeguide', '_blank');
+      window.open('https://outreach.titodreamingwith.me/freeguide', '_blank');
     },
   },
   {
