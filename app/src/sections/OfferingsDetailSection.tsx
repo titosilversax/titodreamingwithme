@@ -42,8 +42,8 @@ const services: ServiceDetail[] = [
     id: 'deep-navigation',
     title: 'The Deep Navigation',
     subtitle: '90-Day Intensive',
-    price: '$1,500 – $2,500',
-    priceNote: 'Sliding scale available',
+    price: 'Sliding scale',
+    priceNote: 'Pricing discussed after application',
     description: 'A private container for navigating significant emotional transitions — grief, identity loss, burnout, or cultural disconnection. This is not therapy. This is guided emotional navigation through music, modal frameworks, and peer-supported practice.',
     features: [
       '6 one-on-one sessions (2 per month)',

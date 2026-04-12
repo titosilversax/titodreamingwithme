@@ -37,7 +37,7 @@ export function HeroSection() {
       {/* Background photo */}
       <div className="absolute inset-0">
         <img
-          src="/hero-bg.jpg"
+          src="/generated-image.png"
           alt=""
           className="w-full h-full object-cover object-center"
           style={{ filter: 'saturate(0.6) contrast(1.05)' }}
