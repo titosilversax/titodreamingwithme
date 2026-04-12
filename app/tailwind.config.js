@@ -46,6 +46,7 @@ module.exports = {
       },
       fontFamily: {
         display: ['Montserrat', 'sans-serif'],
+        script: ['Cormorant Garamond', 'serif'],
         sans: ['Inter', 'sans-serif'],
         mono: ['Space Mono', 'monospace'],
       },

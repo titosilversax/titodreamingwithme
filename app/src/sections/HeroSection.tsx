@@ -54,8 +54,8 @@ export function HeroSection() {
       <div className="relative z-10 text-center px-6 w-full max-w-3xl mx-auto">
         <h1
           ref={headlineRef}
-          className="font-display font-black text-text-primary uppercase tracking-wide-cinematic leading-display mb-5"
-          style={{ fontSize: 'clamp(2.4rem, 8vw, 5.5rem)' }}
+          className="font-script italic font-semibold text-text-primary leading-display mb-5"
+          style={{ fontSize: 'clamp(2.8rem, 8vw, 6rem)' }}
         >
           <span className="word inline-block">The</span>{' '}
           <span className="word inline-block">Emotional</span>{' '}
