@@ -39,7 +39,7 @@ interface ServiceDetail {
 
 const services: ServiceDetail[] = [
   {
-    id: 'star-map',
+    id: 'free-guide',
     title: 'The Emotional Star Map',
     subtitle: 'Free Guide',
     price: 'Free',
@@ -63,7 +63,7 @@ const services: ServiceDetail[] = [
     },
   },
   {
-    id: 'songwriters-edition',
+    id: 'toolkit',
     title: "The Emotional Star Map: Songwriter's Edition",
     subtitle: 'Digital Toolkit',
     price: '$17',
@@ -231,7 +231,7 @@ export function OfferingsDetailSection() {
               key={service.id}
               id={service.id}
               ref={(el) => { cardsRef.current[index] = el; }}
-              className={`relative rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-[1.02] ${
+              className={`relative rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-[1.02] scroll-mt-24 ${
                 service.highlighted 
                   ? 'bg-gradient-to-br from-accent-gold/10 to-accent-gold/5 border-2 border-accent-gold/30' 
                   : 'glass-card border border-text-primary/10'
@@ -415,7 +415,7 @@ export function OfferingsDetailSection() {
         </div>
 
         {/* Ready to Go Deeper */}
-        <div className="mt-24 pt-24 border-t border-text-primary/10">
+        <div id="coaching" className="mt-24 pt-24 border-t border-text-primary/10 scroll-mt-24">
           {/* Prismatic Philosophy */}
           <div className="text-center mb-16">
             <blockquote className="font-script italic text-accent-gold/80 mb-6" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)' }}>

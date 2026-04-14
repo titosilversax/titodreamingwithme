@@ -76,13 +76,13 @@ export function HeroSection() {
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <button
-            onClick={() => document.getElementById('songwriters-edition')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('toolkit')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto btn-hover px-8 py-3 bg-accent-gold text-bg-primary font-medium rounded-full text-sm tracking-wide transition-all hover:shadow-glow"
           >
             Get the Songwriter's Edition
           </button>
           <button
-            onClick={() => document.getElementById('star-map')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('free-guide')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto btn-hover px-8 py-3 border border-text-primary/20 text-text-primary rounded-full text-sm tracking-wide transition-all hover:border-accent-gold hover:text-accent-gold"
           >
             Get the Free Guide
