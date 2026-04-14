@@ -57,27 +57,29 @@ export function HeroSection() {
           className="font-script italic font-semibold text-text-primary leading-display mb-5"
           style={{ fontSize: 'clamp(2.8rem, 8vw, 6rem)' }}
         >
-          <span className="word inline-block">The</span>{' '}
-          <span className="word inline-block">Emotional</span>{' '}
-          <span className="word inline-block">Star</span>{' '}
-          <span className="word inline-block">Map</span>{' '}
-          <span className="word inline-block">for</span>{' '}
-          <span className="word inline-block">Songwriters.</span>
+          <span className="word inline-block">Write</span>{' '}
+          <span className="word inline-block">songs</span>{' '}
+          <span className="word inline-block">that</span>{' '}
+          <span className="word inline-block">sound</span>{' '}
+          <span className="word inline-block">exactly</span>{' '}
+          <span className="word inline-block">how</span>{' '}
+          <span className="word inline-block">you</span>{' '}
+          <span className="word inline-block">feel.</span>
         </h1>
 
         <p
           ref={subheadlineRef}
           className="text-text-secondary text-base md:text-xl mb-8 font-light max-w-2xl mx-auto"
         >
-          A feeling-first creative workspace designed to help you navigate the landscape of the heart and map it to the seven musical modes.
+          Stop guessing chords and falling into "safe" patterns. Use the Emotional Star Map to translate raw emotion into music. No theory degree required.
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <button
-            onClick={() => document.getElementById('offerings')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('songwriters-edition')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto btn-hover px-8 py-3 bg-accent-gold text-bg-primary font-medium rounded-full text-sm tracking-wide transition-all hover:shadow-glow"
           >
-            Explore Offerings
+            Get the Songwriter's Edition
           </button>
           <button
             onClick={() => window.open('https://youtube.com/@titosilversax', '_blank')}

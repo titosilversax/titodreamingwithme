@@ -1,12 +1,10 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { 
-  Check, 
-  Calendar, 
-  Clock, 
-  Music, 
-  FileText, 
+import {
+  Check,
+  Music,
+  FileText,
   MessageSquare,
   Sparkles,
   Headphones,
@@ -35,73 +33,21 @@ interface ServiceDetail {
   cta2?: string;
   ctaAction2?: () => void;
   highlighted?: boolean;
+  badge?: string;
 }
 
 const services: ServiceDetail[] = [
-  {
-    id: 'deep-navigation',
-    title: 'The Deep Navigation',
-    subtitle: '90-Day Intensive',
-    price: 'Sliding scale',
-    priceNote: 'Pricing discussed after application',
-    description: 'A private container for navigating significant emotional transitions — grief, identity loss, burnout, or cultural disconnection. This is not therapy. This is guided emotional navigation through music, modal frameworks, and peer-supported practice.',
-    features: [
-      '6 one-on-one sessions (2 per month)',
-      'Custom Emotional Star Map',
-      'Original saxophone recording made for you',
-      'Async voice note support between sessions',
-      'Bilingual (English & Spanish)',
-    ],
-    includes: [
-      { icon: <Calendar className="w-4 h-4" />, text: 'Month 1: Mapping — 2 sessions + Custom Star Map + Curated modal playlist' },
-      { icon: <Music className="w-4 h-4" />, text: 'Month 2: Movement — 2 sessions + Modal journaling practice + MIDI chord vault' },
-      { icon: <Sparkles className="w-4 h-4" />, text: 'Month 3: Integration — 2 sessions + Personal wellness ritual document' },
-    ],
-    cta: 'Apply for a spot',
-    ctaAction: () => {
-      window.open('https://tally.so/r/KYoE2X', '_blank');
-    },
-    cta2: 'Send a voice memo first',
-    ctaAction2: () => {
-      window.open('https://tally.so/r/D4D9JN', '_blank');
-    },
-    highlighted: true,
-  },
-  {
-    id: 'sound-sessions',
-    title: 'Modal Sound Sessions',
-    subtitle: 'Single Sessions',
-    price: '$150',
-    priceNote: 'per 60-minute session',
-    description: 'Live saxophone improvisation designed to meet you exactly where you are emotionally. Each session is a unique soundscape created in real-time to support regulation, release, or reflection.',
-    features: [
-      '60-minute live improvisation',
-      'Pre-session intention setting',
-      'Post-session integration notes',
-      'Recording of your session',
-      'Available in-person or virtual',
-    ],
-    includes: [
-      { icon: <Clock className="w-4 h-4" />, text: '15-min intention setting call' },
-      { icon: <Headphones className="w-4 h-4" />, text: '45-min live soundscape' },
-      { icon: <FileText className="w-4 h-4" />, text: 'Written integration notes' },
-    ],
-    cta: 'Join the waitlist',
-    ctaAction: () => {
-      window.open('https://outreach.titodreamingwith.me/freeguide', '_blank');
-    },
-  },
   {
     id: 'star-map',
     title: 'The Emotional Star Map',
     subtitle: 'Free Guide',
     price: 'Free',
     priceNote: 'Delivered to your inbox',
-    description: 'A Notion-based guide mapping all seven musical modes to their emotional equivalents — with original names, journaling prompts, and a starting point for building your own sound practice. No music background required.',
+    description: 'Damn the rules — it\'s the feeling that counts. Discover the "Star Note" for each emotional palette and start mapping your emotions to musical modes. No theory degree required.',
     features: [
       'Complete mode-emotion mapping',
+      '"Star Note" for each emotional palette',
       'Journaling prompts for each mode',
-      'Curated playlist starters',
       'Notion template format',
       'Lifetime updates',
     ],
@@ -114,6 +60,32 @@ const services: ServiceDetail[] = [
     ctaAction: () => {
       window.open('https://outreach.titodreamingwith.me/freeguide', '_blank');
     },
+  },
+  {
+    id: 'songwriters-edition',
+    title: "The Emotional Star Map: Songwriter's Edition",
+    subtitle: 'Digital Toolkit',
+    price: '$17',
+    priceNote: 'One-time purchase',
+    description: 'A feeling-first creative workspace designed to bridge the gap between raw emotion and finished music. Stop second-guessing — start from how you feel.',
+    features: [
+      '22-Page Designed Workbook (PDF)',
+      'Interactive Notion Workspace (Duplicatable)',
+      'The 7 Emotional Palettes & 4 Bridges',
+      '5 Song Feeling Journal Session Templates',
+      'Modal Listening Playlist & Chord Charts',
+    ],
+    includes: [
+      { icon: <FileText className="w-4 h-4" />, text: '22-page designed PDF workbook' },
+      { icon: <Sparkles className="w-4 h-4" />, text: 'Duplicatable Notion workspace' },
+      { icon: <Music className="w-4 h-4" />, text: 'Modal chord charts & listening playlist' },
+    ],
+    cta: 'Buy the Toolkit',
+    ctaAction: () => {
+      window.open('https://titodreamingwithme.lemonsqueezy.com', '_blank');
+    },
+    highlighted: true,
+    badge: 'Recommended',
   },
   {
     id: 'grief-cuento',
@@ -233,14 +205,14 @@ export function OfferingsDetailSection() {
         {/* Section Header */}
         <div ref={headerRef} className="text-center mb-16">
           <span className="font-mono text-xs text-accent-gold tracking-cinematic uppercase mb-4 block">
-            Work With Me
+            The Path
           </span>
           <h2 className="font-display font-black text-text-primary uppercase tracking-wide-cinematic leading-display mb-4"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
-            Choose Your Path
+            Choose Your Starting Point
           </h2>
           <p className="text-text-secondary text-base md:text-lg max-w-2xl mx-auto">
-            Every offering was built from the inside out — from someone who found his way back through sound.
+            Every tool here was built feeling-first — to help you write music that actually sounds like you.
           </p>
           <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-gold/30 bg-accent-gold/10 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-accent-gold flex-shrink-0" />
@@ -251,7 +223,7 @@ export function OfferingsDetailSection() {
         </div>
 
         {/* Service Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-24">
+        <div className="grid md:grid-cols-3 gap-6 mb-24">
           {services.map((service, index) => (
             <div
               key={service.id}
@@ -262,10 +234,10 @@ export function OfferingsDetailSection() {
                   : 'glass-card border border-text-primary/10'
               }`}
             >
-              {service.highlighted && (
+              {service.badge && (
                 <div className="absolute -top-3 left-6">
                   <span className="bg-accent-gold text-bg-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                    Most Popular
+                    {service.badge}
                   </span>
                 </div>
               )}
