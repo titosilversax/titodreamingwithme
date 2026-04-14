@@ -65,7 +65,7 @@ const services: ServiceDetail[] = [
   {
     id: 'toolkit',
     title: "The Emotional Star Map: Songwriter's Edition",
-    subtitle: 'Digital Toolkit',
+    subtitle: 'Emotional Processing System',
     price: '$17',
     priceNote: 'One-time purchase',
     description: 'The complete 22-page interactive workspace. Go from a 6-page summary to a full creative engine — built to help you finish songs that actually sound like how you feel.',
@@ -77,10 +77,10 @@ const services: ServiceDetail[] = [
       'Modal Listening Playlist & Chord Charts',
     ],
     includes: [
-      { icon: <FileText className="w-4 h-4" />, text: 'Analog Workbook — a screen-free space to stay in the creative flow.' },
+      { icon: <FileText className="w-4 h-4" />, text: 'The Processing Guide — A structured container for emotional excavation and self-regulation.' },
       { icon: <Sparkles className="w-4 h-4" />, text: 'Notion Template — a digital archive to track your song\'s emotional growth.' },
-      { icon: <Music className="w-4 h-4" />, text: '7 Palettes — the shortcut to finding the exact chord for any mood.' },
-      { icon: <Music className="w-4 h-4" />, text: '4 Bridges — the roadmap for moving your song\'s story from tension to release.' },
+      { icon: <Music className="w-4 h-4" />, text: 'Emotional Landscapes — A map for identifying and honoring the specific "color" of your current internal state.' },
+      { icon: <Music className="w-4 h-4" />, text: 'Transition Frameworks — The roadmap for safely moving through heavy emotions without bypassing the truth of the feeling.' },
     ],
     cta: 'Get the Toolkit',
     ctaAction: () => {
@@ -223,6 +223,16 @@ export function OfferingsDetailSection() {
               Available in English &amp; Spanish — También en español
             </span>
           </div>
+        </div>
+
+        {/* Peer Support Trust Bridge */}
+        <div className="max-w-2xl mx-auto mb-14 text-center">
+          <p className="font-script italic text-accent-gold/80 mb-3" style={{ fontSize: 'clamp(1rem, 2vw, 1.3rem)' }}>
+            "This is about more than chords — it's about finding your way home."
+          </p>
+          <p className="text-text-secondary text-xs md:text-sm font-mono tracking-cinematic">
+            Built by a state-certified peer support specialist who found his way back through sound.
+          </p>
         </div>
 
         {/* Service Cards Grid */}

@@ -73,7 +73,7 @@ export function HeroSection() {
           ref={subheadlineRef}
           className="text-text-secondary text-base md:text-xl mb-8 font-light max-w-2xl mx-auto"
         >
-          Stop losing the raw emotion of your songs to "safe" chord patterns. Map the feeling directly to the music.
+          Stop suppressing your heaviest seasons. Use the Emotional Star Map to translate raw emotion into a somatic sound practice.
         </p>
 
         <div ref={ctaRef} className="flex flex-col items-center gap-5">
