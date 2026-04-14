@@ -71,21 +71,21 @@ export function HeroSection() {
           ref={subheadlineRef}
           className="text-text-secondary text-base md:text-xl mb-8 font-light max-w-2xl mx-auto"
         >
-          Stop guessing chords and falling into "safe" patterns. Use the Emotional Star Map to translate raw emotion into music. No theory degree required.
+          Damn the rules — it's the feeling that counts. Stop losing the emotion that sparked your song to safe chord patterns. Map your feeling to sound with the Emotional Star Map.
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <button
-            onClick={() => document.getElementById('songwriters-edition')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('star-map')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto btn-hover px-8 py-3 bg-accent-gold text-bg-primary font-medium rounded-full text-sm tracking-wide transition-all hover:shadow-glow"
           >
-            Get the Songwriter's Edition
+            Get the Free Guide
           </button>
           <button
-            onClick={() => window.open('https://youtube.com/@titosilversax', '_blank')}
+            onClick={() => document.getElementById('songwriters-edition')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto btn-hover px-8 py-3 border border-text-primary/20 text-text-primary rounded-full text-sm tracking-wide transition-all hover:border-accent-gold hover:text-accent-gold"
           >
-            Listen on YouTube
+            Get the $17 Toolkit
           </button>
         </div>
       </div>

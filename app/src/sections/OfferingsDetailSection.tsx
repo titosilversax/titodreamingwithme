@@ -43,20 +43,20 @@ const services: ServiceDetail[] = [
     subtitle: 'Free Guide',
     price: 'Free',
     priceNote: 'Delivered to your inbox',
-    description: 'Damn the rules — it\'s the feeling that counts. Discover the "Star Note" for each emotional palette and start mapping your emotions to musical modes. No theory degree required.',
+    description: 'The original 6-page guide to mapping seven emotional territories onto the musical modes. Includes the Quick-Start Process and The 4 Emotional Bridges. No theory required.',
     features: [
-      'Complete mode-emotion mapping',
-      '"Star Note" for each emotional palette',
+      'The 7 Emotional Palettes mapped to modes',
+      'The Quick-Start Process',
+      'The 4 Emotional Bridges',
       'Journaling prompts for each mode',
-      'Notion template format',
-      'Lifetime updates',
+      'No music background required',
     ],
     includes: [
-      { icon: <FileText className="w-4 h-4" />, text: '30-page digital guide' },
-      { icon: <Music className="w-4 h-4" />, text: 'Sample modal playlist' },
-      { icon: <Sparkles className="w-4 h-4" />, text: 'Journaling framework' },
+      { icon: <FileText className="w-4 h-4" />, text: '6-page digital guide' },
+      { icon: <Sparkles className="w-4 h-4" />, text: 'Quick-Start Process' },
+      { icon: <Music className="w-4 h-4" />, text: 'The 4 Emotional Bridges' },
     ],
-    cta: 'Get the free guide',
+    cta: 'Download Free Guide',
     ctaAction: () => {
       window.open('https://outreach.titodreamingwith.me/freeguide', '_blank');
     },
@@ -67,20 +67,20 @@ const services: ServiceDetail[] = [
     subtitle: 'Digital Toolkit',
     price: '$17',
     priceNote: 'One-time purchase',
-    description: 'A feeling-first creative workspace designed to bridge the gap between raw emotion and finished music. Stop second-guessing — start from how you feel.',
+    description: 'The complete 22-page interactive workspace. Go from a 6-page summary to a full creative engine — built to help you finish songs that actually sound like how you feel.',
     features: [
-      '22-Page Designed Workbook (PDF)',
       'Interactive Notion Workspace (Duplicatable)',
-      'The 7 Emotional Palettes & 4 Bridges',
-      '5 Song Feeling Journal Session Templates',
+      '5 Structured Song Feeling Journal Sessions',
+      '"Star Note" deep-dive for every palette',
+      'Printable PDF Workbook (22 pages)',
       'Modal Listening Playlist & Chord Charts',
     ],
     includes: [
-      { icon: <FileText className="w-4 h-4" />, text: '22-page designed PDF workbook' },
       { icon: <Sparkles className="w-4 h-4" />, text: 'Duplicatable Notion workspace' },
+      { icon: <FileText className="w-4 h-4" />, text: 'Printable 22-page PDF workbook' },
       { icon: <Music className="w-4 h-4" />, text: 'Modal chord charts & listening playlist' },
     ],
-    cta: 'Buy the Toolkit',
+    cta: 'Get the Toolkit',
     ctaAction: () => {
       window.open('https://titodreamingwithme.lemonsqueezy.com', '_blank');
     },
@@ -93,7 +93,7 @@ const services: ServiceDetail[] = [
     subtitle: 'Digital Product',
     price: '$47',
     priceNote: 'One-time purchase',
-    description: 'A 30-minute healing Cuento composed specifically for grief and loss, paired with a short workbook that helps you locate where grief lives in your body — and which musical modes carry it best.',
+    description: 'A specialized 30-minute healing Cuento and body-mapping workbook for navigating loss. Locate where grief lives in your body — and discover which musical modes carry it best.',
     features: [
       '30-minute original composition',
       'Companion workbook (PDF)',
@@ -227,6 +227,7 @@ export function OfferingsDetailSection() {
           {services.map((service, index) => (
             <div
               key={service.id}
+              id={service.id}
               ref={(el) => { cardsRef.current[index] = el; }}
               className={`relative rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-[1.02] ${
                 service.highlighted 
@@ -397,10 +398,89 @@ export function OfferingsDetailSection() {
           </Accordion>
         </div>
 
+        {/* Ready to Go Deeper */}
+        <div className="mt-24 pt-24 border-t border-text-primary/10">
+          {/* Prismatic Philosophy */}
+          <div className="text-center mb-16">
+            <blockquote className="font-script italic text-accent-gold/80 mb-6" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)' }}>
+              "Every mode is a color of emotion. Every chord is a feeling crystallized."
+            </blockquote>
+            <span className="font-mono text-xs text-accent-gold tracking-cinematic uppercase mb-4 block">
+              Ready to Go Deeper?
+            </span>
+            <h3 className="font-display font-bold text-text-primary text-2xl uppercase tracking-tight-cinematic mb-4">
+              High-Touch Human Upgrades
+            </h3>
+            <p className="text-text-secondary text-sm md:text-base max-w-xl mx-auto">
+              The digital tools are your foundation. When you're ready for live, guided work — this is where we meet.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Deep Navigation */}
+            <div className="glass-card border border-text-primary/10 rounded-2xl p-6 md:p-8">
+              <span className="font-mono text-xs text-text-secondary/60 tracking-cinematic uppercase">90-Day Intensive</span>
+              <h4 className="font-display font-bold text-text-primary text-xl uppercase tracking-tight-cinematic mt-1 mb-3">
+                The Deep Navigation
+              </h4>
+              <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                A private container for navigating significant emotional transitions — grief, identity loss, burnout, or cultural disconnection. Guided emotional mapping through music, modal frameworks, and peer-supported practice.
+              </p>
+              <ul className="space-y-2 mb-6">
+                {['6 one-on-one sessions over 90 days', 'Custom Emotional Star Map', 'Original saxophone recording made for you', 'Async voice note support between sessions', 'Bilingual — English & Spanish', 'Sliding scale pricing'].map((f, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-text-secondary/80">
+                    <Check className="w-4 h-4 text-accent-gold mt-0.5 flex-shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={() => window.open('https://tally.so/r/KYoE2X', '_blank')}
+                  className="w-full btn-hover py-3 px-6 rounded-full font-medium text-sm tracking-wide flex items-center justify-center gap-2 transition-all border border-text-primary/20 text-text-primary hover:border-accent-gold hover:text-accent-gold"
+                >
+                  Apply for a spot <ArrowRight className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => window.open('https://tally.so/r/D4D9JN', '_blank')}
+                  className="w-full btn-hover py-3 px-6 rounded-full font-medium text-sm tracking-wide flex items-center justify-center gap-2 transition-all border border-accent-gold/30 text-accent-gold hover:border-accent-gold"
+                >
+                  Send a voice memo first <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Sound Sessions */}
+            <div className="glass-card border border-text-primary/10 rounded-2xl p-6 md:p-8">
+              <span className="font-mono text-xs text-text-secondary/60 tracking-cinematic uppercase">Single Sessions</span>
+              <h4 className="font-display font-bold text-text-primary text-xl uppercase tracking-tight-cinematic mt-1 mb-3">
+                Modal Sound Sessions
+              </h4>
+              <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                Live saxophone improvisation designed to meet you exactly where you are emotionally. A unique soundscape created in real-time to support regulation, release, or reflection.
+              </p>
+              <ul className="space-y-2 mb-6">
+                {['60-minute live improvisation', 'Pre-session intention setting', 'Post-session integration notes', 'Recording of your session', 'Available in-person or virtual', '$150 per session'].map((f, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-text-secondary/80">
+                    <Check className="w-4 h-4 text-accent-gold mt-0.5 flex-shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={() => window.open('https://outreach.titodreamingwith.me/freeguide', '_blank')}
+                className="w-full btn-hover py-3 px-6 rounded-full font-medium text-sm tracking-wide flex items-center justify-center gap-2 transition-all border border-text-primary/20 text-text-primary hover:border-accent-gold hover:text-accent-gold"
+              >
+                Join the waitlist <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* Final CTA */}
         <div className="text-center mt-16">
           <p className="text-text-secondary text-sm mb-4">
-            Not sure which offering is right for you?
+            Not sure where to start?
           </p>
           <button
             onClick={() => {
@@ -411,7 +491,7 @@ export function OfferingsDetailSection() {
             }}
             className="btn-hover inline-flex items-center gap-2 text-accent-gold text-sm font-medium hover:underline"
           >
-            Let's talk it through
+            Drop me a line
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
