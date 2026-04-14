@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Navigation } from './components/Navigation';
@@ -16,6 +16,20 @@ function App() {
     const handleResize = () => ScrollTrigger.refresh();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Resolve hash anchors after React renders and images begin loading
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    // rAF ensures the DOM is painted; timeout gives images time to reserve space
+    const raf = requestAnimationFrame(() => {
+      const timer = setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+      return () => clearTimeout(timer);
+    });
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   return (

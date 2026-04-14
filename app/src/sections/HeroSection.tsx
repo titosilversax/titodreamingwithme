@@ -39,6 +39,8 @@ export function HeroSection() {
         <img
           src="/generated-image.png"
           alt=""
+          width="1920"
+          height="1080"
           className="w-full h-full object-cover object-center"
           style={{ filter: 'saturate(0.6) contrast(1.05)' }}
         />
