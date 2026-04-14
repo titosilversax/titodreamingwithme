@@ -44,7 +44,7 @@ const services: ServiceDetail[] = [
     subtitle: 'Free Guide',
     price: 'Free',
     priceNote: 'Delivered to your inbox',
-    description: 'The original 6-page guide to mapping seven emotional territories onto the musical modes. Includes the Quick-Start Process and The 4 Emotional Bridges. No theory required.',
+    description: 'The original 6-page guide to mapping seven emotional territories onto the musical modes. Includes the Quick-Start Process and The 4 Emotional Bridges. No music background needed — just honesty about how you feel.',
     features: [
       'The 7 Emotional Palettes mapped to modes',
       'The Quick-Start Process',
@@ -68,7 +68,7 @@ const services: ServiceDetail[] = [
     subtitle: 'Emotional Processing System',
     price: '$17',
     priceNote: 'One-time purchase',
-    description: 'The complete 22-page interactive workspace. Go from a 6-page summary to a full creative engine — built to help you finish songs that actually sound like how you feel.',
+    description: 'The full system for turning a heavy feeling into a finished song. Everything you need to move from stuck to sonically honest.',
     features: [
       'Interactive Notion Workspace (Duplicatable)',
       '5 Structured Song Feeling Journal Sessions',
@@ -82,7 +82,7 @@ const services: ServiceDetail[] = [
       { icon: <Music className="w-4 h-4" />, text: 'Emotional Landscapes — A map for identifying and honoring the specific "color" of your current internal state.' },
       { icon: <Music className="w-4 h-4" />, text: 'Transition Frameworks — The roadmap for safely moving through heavy emotions without bypassing the truth of the feeling.' },
     ],
-    cta: 'Get the Toolkit',
+    cta: 'Get the Full System — $17',
     ctaAction: () => {
       window.open('https://titodreamingwithme.lemonsqueezy.com/checkout/buy/b572d702-7730-4a5b-97b5-ca5c8c09fd54', '_blank');
     },
@@ -96,7 +96,7 @@ const services: ServiceDetail[] = [
     subtitle: 'Digital Product',
     price: '$47',
     priceNote: 'One-time purchase',
-    description: 'A specialized 30-minute healing Cuento and body-mapping workbook for navigating loss. Locate where grief lives in your body — and discover which musical modes carry it best.',
+    description: 'A sound companion for the grief you can\'t put into words. A 30-minute healing Cuento and body-mapping workbook that helps you locate where grief lives — and which modes carry it best.',
     features: [
       '30-minute original composition',
       'Companion workbook (PDF)',
@@ -109,7 +109,7 @@ const services: ServiceDetail[] = [
       { icon: <FileText className="w-4 h-4" />, text: '20-page companion workbook' },
       { icon: <MessageSquare className="w-4 h-4" />, text: 'Reflection prompts' },
     ],
-    cta: 'Join the waitlist',
+    cta: 'Get early access',
     ctaAction: () => {
       const contactSection = document.getElementById('contact');
       if (contactSection) {
@@ -134,7 +134,7 @@ const faqs = [
   },
   {
     question: 'How does the sliding scale work?',
-    answer: 'For the 90-day Deep Navigation container, I offer a sliding scale from $1,500 to $2,500 based on your financial situation. If cost is a barrier, let\'s talk — I reserve a limited number of spots at the lower end of the scale.',
+    answer: 'Pricing for the 90-day Deep Navigation is discussed after your application — because I want to understand your situation before we talk numbers. If cost is a barrier, reach out anyway. I reserve a limited number of spots for people who need it.',
   },
   {
     question: 'Can I combine offerings?',
@@ -231,7 +231,7 @@ export function OfferingsDetailSection() {
             "This is about more than chords — it's about finding your way home."
           </p>
           <p className="text-text-secondary text-xs md:text-sm font-mono tracking-cinematic">
-            Built by a state-certified peer support specialist who found his way back through sound.
+            Built by a certified peer support specialist who found his way back through sound.
           </p>
         </div>
 
@@ -484,7 +484,7 @@ export function OfferingsDetailSection() {
                 Modal Sound Sessions
               </h4>
               <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                Live saxophone improvisation designed to meet you exactly where you are emotionally. A unique soundscape created in real-time to support regulation, release, or reflection.
+                A live soundscape built around exactly where you are emotionally — no script, no agenda, just sound meeting you. Created in real-time to support regulation, release, or reflection.
               </p>
               <ul className="space-y-2 mb-6">
                 {['60-minute live improvisation', 'Pre-session intention setting', 'Post-session integration notes', 'Recording of your session', 'Available in-person or virtual', '$150 per session'].map((f, i) => (

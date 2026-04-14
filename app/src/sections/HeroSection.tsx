@@ -73,27 +73,27 @@ export function HeroSection() {
           ref={subheadlineRef}
           className="text-text-secondary text-base md:text-xl mb-8 font-light max-w-2xl mx-auto"
         >
-          Stop suppressing your heaviest seasons. Use the Emotional Star Map to translate raw emotion into a somatic sound practice.
+          Stop losing the feeling that sparked your song to safe chord patterns. Map your emotion directly to the music — no theory required.
         </p>
 
-        <div ref={ctaRef} className="flex flex-col items-center gap-5">
-          <p className="font-script italic text-accent-gold/90" style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)' }}>
-            "Damn the rules! It's the feeling that counts."
-          </p>
+        <div ref={ctaRef} className="flex flex-col items-center gap-4">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
-          <button
-            onClick={() => document.getElementById('toolkit')?.scrollIntoView({ behavior: 'smooth' })}
-            className="w-full sm:w-auto btn-hover px-8 py-3 bg-accent-gold text-bg-primary font-medium rounded-full text-sm tracking-wide transition-all hover:shadow-glow"
-          >
-            Get the Songwriter's Edition
-          </button>
-          <button
-            onClick={() => document.getElementById('free-guide')?.scrollIntoView({ behavior: 'smooth' })}
-            className="w-full sm:w-auto btn-hover px-8 py-3 border border-text-primary/20 text-text-primary rounded-full text-sm tracking-wide transition-all hover:border-accent-gold hover:text-accent-gold"
-          >
-            Get the Free Guide
-          </button>
+            <button
+              onClick={() => document.getElementById('toolkit')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full sm:w-auto btn-hover px-8 py-3 bg-accent-gold text-bg-primary font-medium rounded-full text-sm tracking-wide transition-all hover:shadow-glow"
+            >
+              Get the Songwriter's Edition
+            </button>
+            <button
+              onClick={() => document.getElementById('free-guide')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full sm:w-auto btn-hover px-8 py-3 border border-text-primary/20 text-text-primary rounded-full text-sm tracking-wide transition-all hover:border-accent-gold hover:text-accent-gold"
+            >
+              Get the Free Guide
+            </button>
           </div>
+          <p className="font-script italic text-accent-gold/70 mt-1" style={{ fontSize: 'clamp(1rem, 2vw, 1.3rem)' }}>
+            "Damn the rules — it's the feeling that counts."
+          </p>
         </div>
       </div>
 
