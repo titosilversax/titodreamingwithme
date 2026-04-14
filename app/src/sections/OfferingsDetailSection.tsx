@@ -30,6 +30,7 @@ interface ServiceDetail {
   includes: { icon: React.ReactNode; text: string }[];
   cta: string;
   ctaAction: () => void;
+  ctaHref?: string;
   cta2?: string;
   ctaAction2?: () => void;
   highlighted?: boolean;
@@ -82,8 +83,9 @@ const services: ServiceDetail[] = [
     ],
     cta: 'Get the Toolkit',
     ctaAction: () => {
-      window.open('https://titodreamingwithme.lemonsqueezy.com', '_blank');
+      window.open('https://prismaticmusicgarden.lemonsqueezy.com/checkout/buy/b572d702-7730-4a5b-97b5-ca5c8c09fd54', '_blank');
     },
+    ctaHref: 'https://prismaticmusicgarden.lemonsqueezy.com/checkout/buy/b572d702-7730-4a5b-97b5-ca5c8c09fd54?embed=1',
     highlighted: true,
     badge: 'Recommended',
   },
@@ -295,6 +297,19 @@ export function OfferingsDetailSection() {
               </div>
 
               <div className="flex flex-col gap-3">
+                {service.ctaHref ? (
+                  <a
+                    href={service.ctaHref}
+                    className={`lemonsqueezy-button w-full btn-hover py-3 px-6 rounded-full font-medium text-sm tracking-wide flex items-center justify-center gap-2 transition-all ${
+                      service.highlighted
+                        ? 'bg-accent-gold text-bg-primary hover:shadow-glow'
+                        : 'border border-text-primary/20 text-text-primary hover:border-accent-gold hover:text-accent-gold'
+                    }`}
+                  >
+                    {service.cta}
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                ) : (
                 <button
                   onClick={service.ctaAction}
                   className={`w-full btn-hover py-3 px-6 rounded-full font-medium text-sm tracking-wide flex items-center justify-center gap-2 transition-all ${
@@ -306,6 +321,7 @@ export function OfferingsDetailSection() {
                   {service.cta}
                   <ArrowRight className="w-4 h-4" />
                 </button>
+                )}
                 {service.cta2 && service.ctaAction2 && (
                   <button
                     onClick={service.ctaAction2}
