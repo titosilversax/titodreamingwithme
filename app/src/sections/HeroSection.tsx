@@ -71,10 +71,14 @@ export function HeroSection() {
           ref={subheadlineRef}
           className="text-text-secondary text-base md:text-xl mb-8 font-light max-w-2xl mx-auto"
         >
-          Stop guessing chords and falling into "safe" patterns. Use the Emotional Star Map to translate raw emotion into music. No theory degree required.
+          Stop losing the raw emotion of your songs to "safe" chord patterns. Map the feeling directly to the music.
         </p>
 
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div ref={ctaRef} className="flex flex-col items-center gap-5">
+          <p className="font-script italic text-accent-gold/90" style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)' }}>
+            "Damn the rules! It's the feeling that counts."
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
           <button
             onClick={() => document.getElementById('toolkit')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto btn-hover px-8 py-3 bg-accent-gold text-bg-primary font-medium rounded-full text-sm tracking-wide transition-all hover:shadow-glow"
@@ -87,6 +91,7 @@ export function HeroSection() {
           >
             Get the Free Guide
           </button>
+          </div>
         </div>
       </div>
 

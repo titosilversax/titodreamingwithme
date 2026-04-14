@@ -77,9 +77,10 @@ const services: ServiceDetail[] = [
       'Modal Listening Playlist & Chord Charts',
     ],
     includes: [
-      { icon: <Sparkles className="w-4 h-4" />, text: 'Duplicatable Notion workspace' },
-      { icon: <FileText className="w-4 h-4" />, text: 'Printable 22-page PDF workbook' },
-      { icon: <Music className="w-4 h-4" />, text: 'Modal chord charts & listening playlist' },
+      { icon: <FileText className="w-4 h-4" />, text: 'Analog Workbook — a screen-free space to stay in the creative flow.' },
+      { icon: <Sparkles className="w-4 h-4" />, text: 'Notion Template — a digital archive to track your song\'s emotional growth.' },
+      { icon: <Music className="w-4 h-4" />, text: '7 Palettes — the shortcut to finding the exact chord for any mood.' },
+      { icon: <Music className="w-4 h-4" />, text: '4 Bridges — the roadmap for moving your song\'s story from tension to release.' },
     ],
     cta: 'Get the Toolkit',
     ctaAction: () => {
@@ -440,7 +441,7 @@ export function OfferingsDetailSection() {
                 The Deep Navigation
               </h4>
               <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                A private container for navigating significant emotional transitions — grief, identity loss, burnout, or cultural disconnection. Guided emotional mapping through music, modal frameworks, and peer-supported practice.
+                A 90-day private container to find your voice through life's heaviest transitions — grief, identity loss, burnout, or cultural disconnection. Guided through music, modal frameworks, and peer-supported practice.
               </p>
               <ul className="space-y-2 mb-6">
                 {['6 one-on-one sessions over 90 days', 'Custom Emotional Star Map', 'Original saxophone recording made for you', 'Async voice note support between sessions', 'Bilingual — English & Spanish', 'Sliding scale pricing'].map((f, i) => (
