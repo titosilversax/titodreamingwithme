@@ -84,9 +84,9 @@ const services: ServiceDetail[] = [
     ],
     cta: 'Get the Toolkit',
     ctaAction: () => {
-      window.open('https://prismaticmusicgarden.lemonsqueezy.com/checkout/buy/b572d702-7730-4a5b-97b5-ca5c8c09fd54', '_blank');
+      window.open('https://titodreamingwithme.lemonsqueezy.com/checkout/buy/b572d702-7730-4a5b-97b5-ca5c8c09fd54', '_blank');
     },
-    ctaHref: 'https://prismaticmusicgarden.lemonsqueezy.com/checkout/buy/b572d702-7730-4a5b-97b5-ca5c8c09fd54?embed=1',
+    ctaHref: 'https://titodreamingwithme.lemonsqueezy.com/checkout/buy/b572d702-7730-4a5b-97b5-ca5c8c09fd54?embed=1',
     highlighted: true,
     badge: 'Recommended',
   },
