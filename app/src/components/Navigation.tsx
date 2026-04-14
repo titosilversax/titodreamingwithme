@@ -47,7 +47,7 @@ export function Navigation() {
             <img
               src="/logo.png"
               alt="Tito Dreaming With Me"
-              className="h-8 md:h-10 w-auto"
+              className="h-24 md:h-32 w-auto"
             />
           </button>
 
