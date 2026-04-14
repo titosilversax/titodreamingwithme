@@ -40,11 +40,15 @@ export function Navigation() {
       >
         <div className="w-full px-6 lg:px-12 flex items-center justify-between">
           {/* Logo */}
-          <button 
+          <button
             onClick={() => scrollToSection('hero')}
-            className="font-mono text-sm md:text-base tracking-cinematic text-text-primary hover:text-accent-gold transition-colors"
+            className="flex items-center transition-opacity hover:opacity-80"
           >
-            tito dreaming with me
+            <img
+              src="/logo.png"
+              alt="Tito Dreaming With Me"
+              className="h-8 md:h-10 w-auto"
+            />
           </button>
 
           {/* Desktop Nav */}
