@@ -4,13 +4,13 @@ import './index.css'
 import App from './App.tsx'
 import { trackPurchase } from './lib/trackPurchase'
 
-// Fire Meta Conversions API event when LemonSqueezy checkout succeeds
+// Fire Meta Conversions API event when Gumroad checkout succeeds
 window.addEventListener('message', (e) => {
   if (e.data?.event === 'Checkout.Success') {
     const email = e.data?.data?.order?.userEmail as string | undefined;
     const value = e.data?.data?.order?.subtotal
       ? e.data.data.order.subtotal / 100
-      : 17;
+      : 27;
     trackPurchase({ email, value });
   }
 });

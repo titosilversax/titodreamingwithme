@@ -66,7 +66,7 @@ const services: ServiceDetail[] = [
     id: 'toolkit',
     title: "The Emotional Star Map: Songwriter's Edition",
     subtitle: 'Emotional Processing System',
-    price: '$17',
+    price: '$27',
     priceNote: 'One-time purchase',
     description: 'The full system for turning a heavy feeling into a finished song. Everything you need to move from stuck to sonically honest.',
     features: [
@@ -82,11 +82,11 @@ const services: ServiceDetail[] = [
       { icon: <Music className="w-4 h-4" />, text: 'Emotional Landscapes — A map for identifying and honoring the specific "color" of your current internal state.' },
       { icon: <Music className="w-4 h-4" />, text: 'Transition Frameworks — The roadmap for safely moving through heavy emotions without bypassing the truth of the feeling.' },
     ],
-    cta: 'Get the Full System — $17',
+    cta: 'Get the Full System — $27',
     ctaAction: () => {
-      window.open('https://titodreamingwithme.lemonsqueezy.com/checkout/buy/b572d702-7730-4a5b-97b5-ca5c8c09fd54', '_blank');
+      window.open('https://titosilversax.gumroad.com/l/thestarmap', '_blank');
     },
-    ctaHref: 'https://titodreamingwithme.lemonsqueezy.com/checkout/buy/b572d702-7730-4a5b-97b5-ca5c8c09fd54?embed=1',
+    ctaHref: 'https://titosilversax.gumroad.com/l/thestarmap',
     highlighted: true,
     badge: 'Recommended',
   },
@@ -311,7 +311,7 @@ export function OfferingsDetailSection() {
                 {service.ctaHref ? (
                   <a
                     href={service.ctaHref}
-                    className={`lemonsqueezy-button w-full btn-hover py-3 px-6 rounded-full font-medium text-sm tracking-wide flex items-center justify-center gap-2 transition-all ${
+                    className={`w-full btn-hover py-3 px-6 rounded-full font-medium text-sm tracking-wide flex items-center justify-center gap-2 transition-all ${
                       service.highlighted
                         ? 'bg-accent-gold text-bg-primary hover:shadow-glow'
                         : 'border border-text-primary/20 text-text-primary hover:border-accent-gold hover:text-accent-gold'

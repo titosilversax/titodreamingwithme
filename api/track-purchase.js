@@ -32,7 +32,7 @@ module.exports = async function handler(req, res) {
         event_source_url: eventSourceUrl || 'https://titodreamingwith.me',
         user_data: userData,
         custom_data: {
-          value: value ?? 17,
+          value: value ?? 27,
           currency: currency || 'USD',
           content_name: 'The Emotional Star Map',
           content_type: 'product',

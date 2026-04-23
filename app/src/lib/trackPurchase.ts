@@ -9,7 +9,7 @@ export async function trackPurchase(params?: {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email: params?.email,
-        value: params?.value ?? 17,
+        value: params?.value ?? 27,
         currency: params?.currency ?? 'USD',
         eventSourceUrl: window.location.href,
         userAgent: navigator.userAgent,
