@@ -1,4 +1,5 @@
 import { useRef, useLayoutEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Youtube, Instagram, Music, ExternalLink } from 'lucide-react';
@@ -109,12 +110,18 @@ export function FooterSection() {
               {link.label}
             </button>
           ))}
-          <a 
-            href="#" 
+          <Link
+            to="/privacy"
             className="text-text-secondary/70 hover:text-text-primary text-sm transition-colors"
           >
             Privacy
-          </a>
+          </Link>
+          <Link
+            to="/terms"
+            className="text-text-secondary/70 hover:text-text-primary text-sm transition-colors"
+          >
+            Terms
+          </Link>
         </div>
 
         {/* Email */}

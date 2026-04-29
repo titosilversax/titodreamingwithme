@@ -1,4 +1,5 @@
 import { useLayoutEffect, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Navigation } from './components/Navigation';
@@ -7,6 +8,8 @@ import { BeliefSection } from './sections/BeliefSection';
 import { OfferingsDetailSection } from './sections/OfferingsDetailSection';
 import { ContactSection } from './sections/ContactSection';
 import { FooterSection } from './sections/FooterSection';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -33,17 +36,23 @@ function App() {
   }, []);
 
   return (
-    <div className="relative bg-bg-primary min-h-screen">
-      <div className="grain-overlay" />
-      <Navigation />
-      <main className="relative">
-        <HeroSection />
-        <BeliefSection />
-        <OfferingsDetailSection />
-        <ContactSection />
-        <FooterSection />
-      </main>
-    </div>
+    <Routes>
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<TermsOfService />} />
+      <Route path="*" element={
+        <div className="relative bg-bg-primary min-h-screen">
+          <div className="grain-overlay" />
+          <Navigation />
+          <main className="relative">
+            <HeroSection />
+            <BeliefSection />
+            <OfferingsDetailSection />
+            <ContactSection />
+            <FooterSection />
+          </main>
+        </div>
+      } />
+    </Routes>
   );
 }
 
